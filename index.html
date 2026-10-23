@@ -167,6 +167,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .offer .labs b{font-family:var(--display)}
   .offer .labs a{font-weight:600}
   .offer li b{font-weight:600}
+  .feature{margin-top:34px;background:var(--ink);color:var(--paper);border-radius:18px;padding:30px;
+    display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:center}
+  .feature .kicker{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .feature h3{font-size:26px;color:#fff;margin:8px 0 10px}
+  .feature p{color:#c3cdda;margin:0}
+  .feature .proof{border-left:1px solid #2a3b52;padding-left:24px;font-size:14.5px;color:#c3cdda}
+  .feature .proof b{display:block;font-family:var(--display);font-size:30px;color:var(--gold);line-height:1;margin-bottom:6px}
+  .feature .go{display:inline-block;margin-top:16px}
+  .case .go{display:inline-block;margin-top:14px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink);text-decoration:none}
+  @media(max-width:920px){ .feature{grid-template-columns:1fr} .feature .proof{border-left:0;padding-left:0;border-top:1px solid #2a3b52;padding-top:20px} }
 
   /* interactive selector */
   .selector{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -403,6 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="brand" href="#top"><span class="logo">LXD</span> Learning By Design AI</a>
     <nav class="nav-links" id="nav">
       <a href="#offerings">Offerings</a>
+      <a href="/b2b">B2B By Design</a>
       <a href="#find">Who we help</a>
       <a href="#work">Proof</a>
       <a href="#team">Team</a>
@@ -425,6 +436,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="btn ghost" href="#offerings">See the offerings</a>
       </div>
       <div class="chips">
+        <a class="chip alt" href="/b2b">B2B</a>
         <a class="chip" href="/product">Product</a>
         <a class="chip alt" href="/gtm">GTM</a>
         <a class="chip" href="/brain">Brain</a>
@@ -530,6 +542,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="eyebrow">Four offerings</div>
       <h2>Build, grow and optimize. With your team.</h2>
       <p>Start with the one that fits where you are. Each one leaves your team able to run it without us.</p>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <div class="kicker">New · B2B By Design</div>
+        <h3>Your consumers love it. Businesses will pay for it.</h3>
+        <p>A 90-day, done-with-you sprint for B2C founders. We player-coach your CEO and CTO to launch a B2B AI-native offer and start selling to companies that pay.</p>
+        <a class="btn gold go" href="/b2b">Explore B2B By Design &rarr;</a>
+      </div>
+      <div class="proof"><b>$1M+</b>B2B pipeline and $150K closed for 100 School, a 20,000-learner consumer brand.</div>
     </div>
     <div class="offer-grid">
       <div class="offer product reveal"><span class="bar"></span>
@@ -748,6 +769,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="nm">100 School</div>
         <div class="meta">AI upskilling · B2C → B2B pivot</div>
         <div class="stat">$1M+</div><div class="statlabel">pipeline, $150K closed; pilots with BCG, Vanta, Ocado Retail, and counting</div>
+        <a class="go" href="/b2b#full-story">Read the case study &rarr;</a>
       </div>
       <div class="case reveal">
         <div class="nm">LeanLab Education</div>
