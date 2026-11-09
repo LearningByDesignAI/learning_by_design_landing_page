@@ -52,6 +52,16 @@ img.logo{display:block;object-fit:cover}
 .nav-links a{text-decoration:none;font-size:15px;font-weight:500;color:var(--muted)}
 .nav-links a:hover{color:var(--ink)}
 .nav-links a.btn{color:var(--ink)}
+/* nav dropdown: <details class="dd"> works without JS and is readable by agents */
+.dd{position:relative}
+.dd summary{list-style:none;cursor:pointer;font-size:15px;font-weight:500;color:var(--muted)}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary::after{content:"\25BE";margin-left:6px;font-size:11px}
+.dd summary:hover,.dd[open] summary{color:var(--ink)}
+.dd-menu{position:absolute;top:calc(100% + 14px);left:-14px;min-width:190px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:8px;box-shadow:0 18px 40px -24px rgba(8,24,40,.45);display:grid;gap:2px}
+.dd-menu a{padding:9px 12px;border-radius:8px;color:var(--ink)}
+.dd-menu a:hover{background:var(--paper)}
 .menu-toggle{display:none;background:none;border:0;cursor:pointer;margin-left:auto;padding:6px}
 .menu-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
 
@@ -118,6 +128,8 @@ img.logo{display:block;object-fit:cover}
 .card h3{font-size:19px;margin:8px 0 8px}
 .card p{font-size:14.5px;color:var(--muted);margin:0}
 .card.step{border-top:4px solid var(--gold)}
+.card .tag{align-self:flex-start;margin-top:8px;font-family:var(--display);font-weight:600;font-size:11.5px;
+  background:var(--gold-soft);border:1px solid var(--gold);border-radius:999px;padding:3px 10px;color:var(--ink)}
 .card.case .who{font-size:13px;color:var(--muted);margin-bottom:12px}
 .card.case .before{font-size:14px;color:var(--muted)}
 .card.case .after{font-size:14.5px;color:var(--ink);margin-top:10px;padding-left:12px;border-left:3px solid var(--gold)}
@@ -192,7 +204,7 @@ img.logo{display:block;object-fit:cover}
 .quote figcaption{font-family:var(--display);font-weight:700;font-size:14px;color:var(--gold);margin-top:12px}
 
 /* team */
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px;max-width:820px}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
 .person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;grid-template-columns:64px 1fr;gap:16px}
 .person .av{width:64px;height:64px;border-radius:14px;overflow:hidden;background:var(--peach)}
 .person .av img{width:100%;height:100%;object-fit:cover;display:block}
@@ -241,6 +253,7 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(
   .nav-links{display:none}
   .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;
     background:var(--paper);padding:18px 28px;border-bottom:1px solid var(--line);gap:16px}
+  .dd-menu{position:static;box-shadow:none;border:0;padding:6px 0 0 12px;min-width:0}
   .menu-toggle{display:block}
   .hero-grid,.qgrid,.team-grid{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}

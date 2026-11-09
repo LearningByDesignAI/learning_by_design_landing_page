@@ -6,6 +6,9 @@ Our point of view: AI transformation is a human agency problem disguised as a te
 
 ## The offer: your first 3 ROI-positive AI agents in 3 months
 
+What the work covers: AI strategy, AI upskilling, AI deployment and implementation, and AI measurement and optimization (including ROI and token spend).
+
+
 - Weeks 1 to 2, baseline: interviews, a workflow map and today's numbers.
 - Weeks 3 to 4, brain and workflow 1: data, metrics and know-how in one layer; the first workflow goes live.
 - Month 2, champions and workflow 2: leaders and champions learn to build their own skills.
@@ -31,7 +34,7 @@ In parallel, token spend is optimized continuously (small models for routine ste
 - PNC, private banking market leader: a weekly agent across four calendars with scoped permissions.
 - Enterprise cohort outcomes: AI fluency 7% to 75%; confident AI use 49% to 86%; 90%+ completion.
 - Vet talent marketplace (~$40M ARR): paid ads agent live in two weeks, 500+ ads pushed.
-- Investment bank (medical science): 8 source systems in one brain, 58 skills on top.
+- Locust Walk (investment bank, medical science): 8 source systems in one brain, 58 skills on top.
 - 100 School: $1M+ B2B pipeline and $150K closed.
 - ReachAll AI (voice AI, built by Vedansh): under 300ms latency, 3x lower cost, 99.99% uptime; acquired by IKEA's parent company.
 - Also built with: TrustVet, Edstruments, Chestnut, Locust Walk, Springboard, Roo, Willow, Cloudforce.
@@ -42,7 +45,6 @@ In parallel, token spend is optimized continuously (small models for routine ste
 - [B2B By Design](https://learningbydesign.ai/b2b): turn a B2C product into a B2B AI-native offer in 90 days
 - [Product](https://learningbydesign.ai/product): AI-native product and engineering
 - [GTM](https://learningbydesign.ai/gtm): AI-native GTM and RevOps for growing sales teams
-- [Brain](https://learningbydesign.ai/brain): one shared context layer every agent reads from
 - [Education](https://learningbydesign.ai/education): a full-stack AI partner for education
 - [Writing](https://learningbydesign.substack.com): field notes on Substack
 
