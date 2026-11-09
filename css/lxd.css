@@ -268,3 +268,20 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(
   .js .reveal{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
 }
+
+/* logo marquee: one line, loops forever. The second .group is an aria-hidden copy so the
+   loop is seamless; screen readers and agents read the first group only. Pauses on hover,
+   and falls back to a wrapped static row for prefers-reduced-motion. */
+.logorow.marquee{display:block;overflow:hidden;container-type:inline-size;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee .track{display:flex;width:max-content;animation:lxd-marquee var(--dur,40s) linear infinite}
+.marquee .group{display:flex;gap:12px;padding-right:12px;flex-shrink:0;min-width:100cqw;justify-content:space-around}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes lxd-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .logorow.marquee{-webkit-mask-image:none;mask-image:none}
+  .marquee .track{animation:none;width:auto}
+  .marquee .group{flex-wrap:wrap;padding-right:0;justify-content:flex-start}
+  .marquee .group[aria-hidden]{display:none}
+}
