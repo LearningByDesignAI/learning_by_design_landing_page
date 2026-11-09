@@ -1,0 +1,60 @@
+# Learning By Design AI
+
+> We build a shared AI brain inside your team, then ship AI agents and workflows that pay for themselves, measured against your own baseline. Lead offer: your first 3 ROI-positive AI agents, live in 3 months. Founded by David Fu (CEO) and Vedansh Garg (CTO).
+
+Our point of view: AI transformation is a human agency problem disguised as a technology problem. AI ROI comes from amplifying people's judgment and expertise, not extracting it to cut headcount (Amplifying > Extracting). Our goal is to close the agency gap in 1,000 companies by 2030, without a single AI-driven layoff.
+
+## The offer: your first 3 ROI-positive AI agents in 3 months
+
+What the work covers: AI strategy, AI upskilling, AI deployment and implementation, and AI measurement and optimization (including ROI and token spend).
+
+
+- Weeks 1 to 2, baseline: interviews, a workflow map and today's numbers.
+- Weeks 3 to 4, brain and workflow 1: data, metrics and know-how in one layer; the first workflow goes live.
+- Month 2, champions and workflow 2: leaders and champions learn to build their own skills.
+- Month 3, workflow 3 and an ROI scorecard measured against the baseline.
+
+## The AI capability loop
+
+Start with one workflow that matters. Each layer creates the need for the next:
+
+1. The brain: app data, CRM, pricing and Drive, connected once.
+2. Skills directory: how each team works, written once as skills anyone can call.
+3. Workflows: skills chained into jobs that run end to end.
+4. Apps: every team ships its own tools on the same brain, with one login.
+5. Semantic and metric layer: every metric defined once. New teams join, back to 1.
+
+In parallel, token spend is optimized continuously (small models for routine steps, caching, quarterly reviews of top token sinks), so cost per task falls as usage grows. One startup went from $2,000 to $300 a month.
+
+## Recent work
+
+- JPMorgan Chase, research and strategy lead: building the firm's own taxonomy agent in place of an outside tagging vendor.
+- JPMorgan Chase, technology program management lead: a stand-up summarizer and a 13-program portfolio report agent.
+- Target, regional corporate security leader: an audit workflow that compares quarters automatically, and a sourced benchmark deck.
+- PNC, private banking market leader: a weekly agent across four calendars with scoped permissions.
+- 100 School x BCG: an AI upskilling rollout for 300+ employees globally across two teams. AI fluency 7% to 75%; confident AI use 49% to 86%; 90%+ completion.
+- Vet talent marketplace (~$40M ARR): paid ads agent live in two weeks, 500+ ads pushed.
+- Locust Walk (investment bank, medical science): 8 source systems in one brain, 58 skills on top.
+- 100 School: $1M+ B2B pipeline and $150K closed.
+- ReachAll AI (voice AI, built by Vedansh): under 300ms latency, 3x lower cost, 99.99% uptime; acquired by IKEA's parent company.
+- Also built with: TrustVet, Edstruments, Chestnut, Locust Walk, Springboard, Roo, Willow, Cloudforce.
+
+## Pages
+
+- [Home](https://learningbydesign.ai/): the lead offer, the loop and recent work
+- [B2B By Design](https://learningbydesign.ai/b2b): turn a B2C product into a B2B AI-native offer in 90 days
+- [Product](https://learningbydesign.ai/product): AI-native product and engineering
+- [GTM](https://learningbydesign.ai/gtm): AI-native GTM and RevOps for growing sales teams
+- [Education](https://learningbydesign.ai/education): a full-stack AI partner for education
+- [Writing](https://learningbydesign.substack.com): field notes on Substack
+
+## Documents
+
+- [The AI capability loop (PDF)](https://learningbydesign.ai/assets/pdfs/lxd-ai-capability-loop.pdf)
+- [One-pager: building AI capability and proving ROI (PDF)](https://learningbydesign.ai/assets/pdfs/lxd-one-pager.pdf)
+- [Enterprise cohort results (PDF)](https://learningbydesign.ai/assets/pdfs/lxd-enterprise-cohort.pdf)
+
+## Contact
+
+- Book a call: https://cal.com/davidfu/30min
+- LinkedIn: https://linkedin.com/company/learningxdesign
