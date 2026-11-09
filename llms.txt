@@ -32,7 +32,7 @@ In parallel, token spend is optimized continuously (small models for routine ste
 - JPMorgan Chase, technology program management lead: a stand-up summarizer and a 13-program portfolio report agent.
 - Target, regional corporate security leader: an audit workflow that compares quarters automatically, and a sourced benchmark deck.
 - PNC, private banking market leader: a weekly agent across four calendars with scoped permissions.
-- Enterprise cohort outcomes: AI fluency 7% to 75%; confident AI use 49% to 86%; 90%+ completion.
+- 100 School x BCG: an AI upskilling rollout for 300+ employees globally across two teams. AI fluency 7% to 75%; confident AI use 49% to 86%; 90%+ completion.
 - Vet talent marketplace (~$40M ARR): paid ads agent live in two weeks, 500+ ads pushed.
 - Locust Walk (investment bank, medical science): 8 source systems in one brain, 58 skills on top.
 - 100 School: $1M+ B2B pipeline and $150K closed.
