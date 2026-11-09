@@ -45,6 +45,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.88);
 .nav{display:flex;align-items:center;gap:24px;height:68px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;
   font-size:17px;text-decoration:none}
+img.logo{display:block;object-fit:cover}
 .logo{width:34px;height:34px;background:var(--ink);color:var(--gold);border-radius:7px;
   display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.04em}
 .nav-links{display:flex;gap:26px;margin-left:auto;align-items:center}
@@ -126,7 +127,29 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.88);
 .note{font-size:15px;color:var(--muted);margin-top:22px}
 .note b{color:var(--ink)}
 
-/* AI capability loop */
+/* AI capability loop, ring version (.loop-wrap): five nodes on a circle around a hub,
+   token-spend panel beside it. Falls back to a stacked list under 980px. */
+.loop-wrap{display:grid;grid-template-columns:1.75fr 1fr;gap:34px;align-items:center;margin-top:30px}
+.loop-ring{position:relative;aspect-ratio:1/1;max-width:680px;width:100%;margin:0 auto}
+.loop-ring .ring{position:absolute;inset:0;width:100%;height:100%}
+.loop-ring .ring circle{fill:none;stroke:var(--gold);stroke-width:.55;stroke-dasharray:1.6 1.2}
+.loop-ring .ring path{fill:var(--orange)}
+.loop-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:210px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:8px}
+.loop-hub b{background:var(--ink);color:var(--gold);border-radius:999px;padding:5px 12px;font-family:var(--display);
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.loop-hub .t{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15}
+.loop-hub .s{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.loop-nodes{list-style:none;margin:0;padding:0}
+.loop-node{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:176px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px;box-shadow:0 14px 30px -24px rgba(8,24,40,.45)}
+.loop-node .n{font-family:var(--display);font-weight:700;font-size:12.5px;color:var(--orange)}
+.loop-node h3{font-size:16px;margin:2px 0 6px}
+.loop-node p{font-size:12.5px;line-height:1.4;color:var(--muted);margin:0}
+.loop-node .next{display:block;margin-top:8px;font-size:12px;font-weight:600;color:var(--navy);line-height:1.35}
+.loop-tokens.side{margin-top:0;grid-template-columns:1fr;gap:16px}
+
+/* AI capability loop, row version (.loop) */
 .loop{margin-top:36px}
 .loop-start{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:15px;
   background:var(--gold-soft);border:1px solid var(--gold);border-radius:999px;padding:7px 16px 7px 7px}
@@ -151,6 +174,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.88);
 .loop-tokens b{color:var(--gold)}
 .loop-dl{display:inline-block;margin-top:18px;font-family:var(--display);font-weight:600;font-size:14.5px;
   text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px}
+
+/* group label inside a section */
+.group-label{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--orange);margin:40px 0 0}
+.group-label+.cards{margin-top:16px}
 
 /* stats */
 .stats{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:28px;padding:18px 22px;background:var(--gold-soft);
@@ -194,6 +222,15 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(
 .js .reveal.in{opacity:1;transform:none}
 
 @media(max-width:980px){
+  .loop-wrap{grid-template-columns:1fr}
+  .loop-ring{aspect-ratio:auto;max-width:none}
+  .loop-ring .ring{display:none}
+  .loop-hub{position:static;transform:none;width:auto;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;margin-bottom:16px}
+  .loop-hub .t{font-size:17px}
+  .loop-nodes{display:grid;gap:20px}
+  .loop-node{position:relative;left:auto;top:auto;transform:none;width:auto}
+  .loop-node:not(:last-child)::after{content:"\2193";position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);
+    font-family:var(--display);font-weight:700;color:var(--orange)}
   .loop-layers{grid-template-columns:1fr;gap:20px}
   .loop-layer:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-20px;transform:translateX(-50%)}
   .loop-return{margin:0 18px}

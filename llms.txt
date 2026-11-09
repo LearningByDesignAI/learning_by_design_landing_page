@@ -33,6 +33,8 @@ In parallel, token spend is optimized continuously (small models for routine ste
 - Vet talent marketplace (~$40M ARR): paid ads agent live in two weeks, 500+ ads pushed.
 - Investment bank (medical science): 8 source systems in one brain, 58 skills on top.
 - 100 School: $1M+ B2B pipeline and $150K closed.
+- ReachAll AI (voice AI, built by Vedansh): under 300ms latency, 3x lower cost, 99.99% uptime; acquired by IKEA's parent company.
+- Also built with: TrustVet, Edstruments, Chestnut, Locust Walk, Springboard, Roo, Willow, Cloudforce.
 
 ## Pages
 
