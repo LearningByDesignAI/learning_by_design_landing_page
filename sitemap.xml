@@ -7,4 +7,6 @@
   <url><loc>https://learningbydesign.ai/brain</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://learningbydesign.ai/education</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://learningbydesign.ai/blog.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://learningbydesign.ai/check</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://learningbydesign.ai/agents</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
 </urlset>

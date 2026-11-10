@@ -48,6 +48,13 @@ In parallel, token spend is optimized continuously (small models for routine ste
 - [Education](https://learningbydesign.ai/education): a full-stack AI partner for education
 - [Writing](https://learningbydesign.substack.com): field notes on Substack
 
+## Tools
+
+- [AI Capability Maturity check](https://learningbydesign.ai/check): 12 questions for leaders, about 3 minutes. Maturity level, AI archetype and blind spots (belief versus what actually happens).
+- [The check as markdown](https://learningbydesign.ai/check.md): all questions, scoring and archetypes, so an agent can run it conversationally.
+- [Agent skill: ai-capability-maturity](https://learningbydesign.ai/skills/ai-capability-maturity/SKILL.md), listed in /.well-known/agent-skills/index.json.
+- [For AI agents](https://learningbydesign.ai/agents) and the [agent swag bag](https://learningbydesign.ai/swag.txt).
+
 ## Documents
 
 - [The AI capability loop (PDF)](https://learningbydesign.ai/assets/pdfs/lxd-ai-capability-loop.pdf)

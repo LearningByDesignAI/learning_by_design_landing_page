@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=' js'</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N28T7R3S');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Capability Maturity check · Learning By Design AI</title>
+<meta name="description" content="12 questions, about 3 minutes. Find where your org sits on the AI capability loop, your AI archetype, and the blind spots between what you believe and what actually happens.">
+<link rel="canonical" href="https://learningbydesign.ai/check">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Capability Maturity: where is your org on the loop?">
+<meta property="og:description" content="12 questions, about 3 minutes. Get your maturity level, your AI archetype and your blind spots.">
+<meta property="og:url" content="https://learningbydesign.ai/check">
+<meta property="og:image" content="https://learningbydesign.ai/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/logos/lxd-mark-64.png" type="image/png">
+<link rel="alternate" type="text/markdown" href="/check.md" title="AI Capability Maturity check, markdown version for AI agents">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/lxd.css">
+<style>
+/* page-specific: AI Capability Maturity check */
+.chk-hero{padding:64px 0 28px}
+.chk-hero h1{font-size:clamp(34px,5vw,58px);letter-spacing:-.02em;max-width:18ch;margin-top:12px}
+.chk-hero p{color:var(--muted);font-size:19px;max-width:56ch;margin-top:18px}
+.chk-hero .meta{font-size:14px;color:var(--muted);margin-top:14px}
+.chk-hero .meta b{color:var(--ink)}
+
+#quiz{padding:24px 0 72px}
+.stage{max-width:760px;margin:0 auto}
+.progress{display:flex;align-items:center;gap:14px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted)}
+.progress .bar{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.progress .bar i{display:block;height:100%;width:0;background:var(--orange);transition:width .35s}
+.q{border:1px solid var(--line);background:#fff;border-radius:18px;padding:28px;margin:18px 0 0}
+.q legend{float:left;width:100%;padding:0;font-family:var(--display);font-weight:700;font-size:clamp(21px,2.6vw,27px);line-height:1.2}
+.q .part{display:block;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.q .hint{clear:both;font-size:14px;color:var(--muted);padding-top:8px}
+.opts{clear:both;display:grid;gap:10px;padding-top:18px}
+.opts.scale{grid-template-columns:repeat(5,1fr)}
+.opt{font:inherit;font-size:16px;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;
+  padding:14px 16px;cursor:pointer;color:var(--ink);transition:border-color .15s,background .15s,transform .15s}
+.opts.scale .opt{text-align:center;font-size:14px;padding:14px 8px}
+.opt:hover{border-color:var(--gold);background:var(--gold-soft)}
+.opt.sel{border-color:var(--orange);background:var(--gold-soft)}
+.opt:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.qnav{display:flex;justify-content:space-between;margin-top:14px;font-size:14px}
+.qnav button{font:inherit;background:none;border:0;color:var(--navy);cursor:pointer;padding:6px 0}
+.qnav button[disabled]{opacity:.3;cursor:default}
+.js .q{display:none}
+.js .q.on{display:block;animation:qin .3s ease both}
+@keyframes qin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+html:not(.js) .progress,html:not(.js) .qnav{display:none}
+
+/* results */
+#results{padding:24px 0 40px}
+.res-head{text-align:center;max-width:720px;margin:0 auto}
+.res-head .lvl{display:inline-flex;gap:10px;align-items:center;font-family:var(--display);font-weight:700;font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.res-head h2{font-size:clamp(30px,4.4vw,48px);letter-spacing:-.01em;margin-top:10px}
+.res-head p{color:var(--muted);font-size:18px;margin-top:12px}
+.score-big{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);background:var(--gold-soft);
+  border:1px solid var(--gold);border-radius:99px;padding:4px 12px}
+
+.deal-zone{margin:34px auto 0;text-align:center}
+.pack{width:150px;aspect-ratio:5/7;margin:0 auto 18px;border-radius:14px;background:var(--navy);position:relative;
+  box-shadow:0 2px 0 #fff,0 4px 0 var(--navy),0 6px 0 #fff,0 8px 0 var(--navy),0 18px 30px rgba(8,24,40,.25);
+  display:flex;align-items:center;justify-content:center}
+.pack img{width:54px;border-radius:10px}
+.pack.shake{animation:shake .45s ease}
+@keyframes shake{25%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-2deg)}}
+.table{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:6px;perspective:1400px}
+.pcard{width:250px;aspect-ratio:25/39;cursor:pointer;animation:deal .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*.32s)}
+@keyframes deal{from{opacity:0;transform:translate(0,-120px) rotate(calc(var(--i)*9deg - 14deg)) scale(.6)}to{opacity:1;transform:none}}
+.pc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.8,.2,1)}
+.pcard.up .pc-inner{transform:rotateY(180deg)}
+.pc-back,.pc-face{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.pc-back{background:var(--navy);display:flex;align-items:center;justify-content:center;
+  background-image:radial-gradient(circle at 50% 50%,transparent 54px,rgba(250,211,146,.55) 55px,transparent 56px),
+  repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+.pc-back img{width:58px;border-radius:12px}
+.pc-face{transform:rotateY(180deg);background:#fff;border:1px solid var(--line);text-align:left;padding:18px;
+  display:flex;flex-direction:column;gap:7px;font-size:13px;line-height:1.42}
+.pc-face .kick{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.pc-face h4{font-size:19px;line-height:1.15}
+.pc-face .said{color:var(--muted)}
+.pc-face .real{border-left:3px solid var(--orange);padding-left:10px}
+.pc-face .fix{margin-top:auto;background:var(--paper);border-radius:10px;padding:10px}
+.pc-face .fix b{font-family:var(--display)}
+.pcard.spot .pc-face{border-top:5px solid var(--orange)}
+.pcard.strength .pc-face{border-top:5px solid #3E8E6A}
+.pcard.strength .kick{color:#2F7354}
+.pcard.arch .pc-face{background:var(--ink);color:#fff;border:2px solid var(--gold)}
+.pcard.arch .kick{color:var(--gold)}
+.pcard.arch h4{font-size:24px;color:var(--gold)}
+.pcard.arch .tag{font-style:italic;color:#E9E2D2;font-size:15px}
+.pcard.arch .fix{background:rgba(250,211,146,.12);color:#fff}
+.pcard.arch .pc-face::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 45%,transparent 60%);
+  transform:translateX(-120%);animation:shine 2.4s ease 1.2s 2}
+@keyframes shine{to{transform:translateX(120%)}}
+.flip-hint{font-size:13px;color:var(--muted);margin-top:12px}
+
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;max-width:960px;margin:56px auto 0}
+.lens{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:#fff;margin-bottom:16px}
+.lens button{font:inherit;font-family:var(--display);font-weight:600;font-size:13px;border:0;background:none;padding:7px 14px;border-radius:99px;cursor:pointer;color:var(--muted)}
+.lens button.on{background:var(--ink);color:#fff}
+.bars{list-style:none;padding:0;margin:0}
+.bars li{display:grid;grid-template-columns:150px 1fr 38px;gap:12px;align-items:center;font-size:14px;padding:7px 0}
+.bars .track{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.bars .track i{display:block;height:100%;background:var(--gold);border-radius:99px;transition:width .6s}
+.bars li.low .track i{background:var(--orange)}
+.bars li.low span:first-child::after{content:" · start here";color:var(--orange);font-weight:600;font-size:12px}
+.bars b{font-family:var(--display);text-align:right}
+.mini-ring svg{width:100%;max-width:360px;display:block;margin:0 auto}
+.mini-ring text{font-family:'Space Grotesk',sans-serif}
+
+.report{max-width:960px;margin:56px auto 0;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;
+  background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px}
+.report h3{font-size:24px}
+.report ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.report form{display:grid;gap:10px;align-content:start}
+.report input{font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper)}
+.report input:focus{outline:none;border-color:var(--orange)}
+.report .ok{font-size:14px;color:var(--muted)}
+.after{text-align:center;margin:40px auto 0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.after .btn{cursor:pointer}
+
+@media(max-width:820px){
+  .opts.scale{grid-template-columns:1fr}
+  .opts.scale .opt{text-align:left}
+  .scores,.report{grid-template-columns:1fr}
+  .pcard{width:min(330px,88vw);aspect-ratio:20/23}
+  .bars li{grid-template-columns:120px 1fr 34px}
+}
+@media(prefers-reduced-motion:reduce){
+  .pcard,.js .q.on{animation:none}
+  .pc-inner{transition:none}
+  .pcard.arch .pc-face::after{display:none}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N28T7R3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><img class="logo" src="/assets/logos/lxd-mark.png" alt="LXD" width="34" height="34"> Learning By Design AI</a>
+    <nav class="nav-links" id="nav" aria-label="Main">
+      <a href="/#offer">How it works</a>
+      <a href="/#loop">The loop</a>
+      <a href="/#work">Recent work</a>
+      <a href="/#team">Team</a>
+      <details class="dd">
+        <summary>Other offerings</summary>
+        <div class="dd-menu">
+          <a href="/b2b">B2B By Design</a>
+          <a href="/product">Product</a>
+          <a href="/gtm">GTM</a>
+          <a href="/education">Education</a>
+        </div>
+      </details>
+      <a href="/blog.html">Writing</a>
+      <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="nav">Book a call</a>
+    </nav>
+    <button class="menu-toggle" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="chk-hero" id="intro">
+  <div class="wrap">
+    <div class="eyebrow">AI Capability Maturity</div>
+    <h1>Where is your org on the AI capability loop?</h1>
+    <p>Twelve questions for leaders, about three minutes. Six about what you believe, six about what actually happens. The gap between them is where your blind spots live.</p>
+    <p class="meta"><b>You get:</b> your maturity level, your AI archetype, and your blind spots, dealt as a hand of cards. No email needed to see them.</p>
+    <p style="margin-top:26px"><button class="btn gold" id="startBtn" type="button" style="font-size:17px;padding:15px 26px;cursor:pointer">Start the check</button></p>
+  </div>
+</section>
+
+<!-- The questions live in the HTML (not only in JS) so people without JS, search engines
+     and AI agents can read the whole check. JS shows them one at a time and scores them.
+     data-dim = loop layer, data-pillar = readiness pillar, data-kind = belief | evidence,
+     data-v = 0..1 maturity value, data-tag = archetype signal. -->
+<section id="quiz" aria-label="The 12 questions">
+  <div class="wrap stage">
+    <div class="progress" aria-hidden="true"><span id="pLabel">1 of 12</span><span class="bar"><i id="pBar"></i></span></div>
+
+    <!-- Part 1: what you believe -->
+    <fieldset class="q" data-dim="brain" data-pillar="data" data-kind="belief">
+      <legend><span class="part">Part 1 · What you believe</span>Our AI tools already know our business: our customers, our pricing and how we work.</legend>
+      <div class="opts scale"><button type="button" class="opt" data-v="0">Strongly disagree</button><button type="button" class="opt" data-v=".25">Disagree</button><button type="button" class="opt" data-v=".5">Not sure</button><button type="button" class="opt" data-v=".75">Agree</button><button type="button" class="opt" data-v="1">Strongly agree</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="skills" data-pillar="skills" data-kind="belief">
+      <legend><span class="part">Part 1 · What you believe</span>Our best people's know-how is captured somewhere the rest of the team can reuse it.</legend>
+      <div class="opts scale"><button type="button" class="opt" data-v="0">Strongly disagree</button><button type="button" class="opt" data-v=".25">Disagree</button><button type="button" class="opt" data-v=".5">Not sure</button><button type="button" class="opt" data-v=".75">Agree</button><button type="button" class="opt" data-v="1">Strongly agree</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="workflows" data-pillar="strategy" data-kind="belief">
+      <legend><span class="part">Part 1 · What you believe</span>AI already does real work for us, end to end, not just first drafts.</legend>
+      <div class="opts scale"><button type="button" class="opt" data-v="0">Strongly disagree</button><button type="button" class="opt" data-v=".25">Disagree</button><button type="button" class="opt" data-v=".5">Not sure</button><button type="button" class="opt" data-v=".75">Agree</button><button type="button" class="opt" data-v="1">Strongly agree</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="apps" data-pillar="governance" data-kind="belief">
+      <legend><span class="part">Part 1 · What you believe</span>When a team needs an AI tool, they can get one quickly that is safe and connected to our data.</legend>
+      <div class="opts scale"><button type="button" class="opt" data-v="0">Strongly disagree</button><button type="button" class="opt" data-v=".25">Disagree</button><button type="button" class="opt" data-v=".5">Not sure</button><button type="button" class="opt" data-v=".75">Agree</button><button type="button" class="opt" data-v="1">Strongly agree</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="measure" data-pillar="roi" data-kind="belief">
+      <legend><span class="part">Part 1 · What you believe</span>We know what AI returns on what we spend on it.</legend>
+      <div class="opts scale"><button type="button" class="opt" data-v="0">Strongly disagree</button><button type="button" class="opt" data-v=".25">Disagree</button><button type="button" class="opt" data-v=".5">Not sure</button><button type="button" class="opt" data-v=".75">Agree</button><button type="button" class="opt" data-v="1">Strongly agree</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="people" data-pillar="strategy" data-kind="belief">
+      <legend><span class="part">Part 1 · What you believe</span>Our people have the time and the permission to experiment with AI.</legend>
+      <div class="opts scale"><button type="button" class="opt" data-v="0">Strongly disagree</button><button type="button" class="opt" data-v=".25">Disagree</button><button type="button" class="opt" data-v=".5">Not sure</button><button type="button" class="opt" data-v=".75">Agree</button><button type="button" class="opt" data-v="1">Strongly agree</button></div>
+    </fieldset>
+
+    <!-- Part 2: what actually happens -->
+    <fieldset class="q" data-dim="brain" data-pillar="data" data-kind="evidence">
+      <legend><span class="part">Part 2 · What actually happens</span>A new hire asks your company's AI what you charge your biggest customer segment. What happens?</legend>
+      <div class="opts"><button type="button" class="opt" data-v="0">We don't have a company AI tool</button><button type="button" class="opt" data-v=".2">It makes something up, or says it doesn't know</button><button type="button" class="opt" data-v=".55">It gets close, if they paste in the right docs first</button><button type="button" class="opt" data-v="1">It answers correctly, from our own connected data</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="skills" data-pillar="skills" data-kind="evidence">
+      <legend><span class="part">Part 2 · What actually happens</span>How many shared AI skills or prompt playbooks does your org have?</legend>
+      <p class="hint">Shared means anyone can use them, not saved in one person's account.</p>
+      <div class="opts"><button type="button" class="opt" data-v="0">None that I know of</button><button type="button" class="opt" data-v=".3" data-tag="wizard">A few, mostly owned by one or two power users</button><button type="button" class="opt" data-v=".7">A shared library that a handful of teams use</button><button type="button" class="opt" data-v="1">A maintained directory every team uses and adds to</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="workflows" data-pillar="strategy" data-kind="evidence">
+      <legend><span class="part">Part 2 · What actually happens</span>How many AI workflows run in production today, without someone babysitting them?</legend>
+      <div class="opts"><button type="button" class="opt" data-v="0">None yet</button><button type="button" class="opt" data-v=".15" data-tag="graveyard">None, but we have lots of pilots</button><button type="button" class="opt" data-v=".1" data-tag="ring">None, we're building one platform to do it all first</button><button type="button" class="opt" data-v=".6">One or two</button><button type="button" class="opt" data-v="1">Three or more, each with an owner</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="apps" data-pillar="governance" data-kind="evidence">
+      <legend><span class="part">Part 2 · What actually happens</span>When a team wants a new AI tool, what usually happens?</legend>
+      <div class="opts"><button type="button" class="opt" data-v=".2" data-tag="collector">They buy another license</button><button type="button" class="opt" data-v=".1" data-tag="wizard">Someone uses a personal account and hopes nobody asks</button><button type="button" class="opt" data-v=".3">It sits in an IT queue for months</button><button type="button" class="opt" data-v="1">They build it or switch it on in days, on our approved stack</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="measure" data-pillar="roi" data-kind="evidence">
+      <legend><span class="part">Part 2 · What actually happens</span>What can you say for sure about AI at your org last month?</legend>
+      <div class="opts"><button type="button" class="opt" data-v="0" data-tag="blackbox">Honestly, not much</button><button type="button" class="opt" data-v=".25" data-tag="blackbox collector">How many licenses we pay for</button><button type="button" class="opt" data-v=".6" data-tag="dashboard">Usage and token spend, by team</button><button type="button" class="opt" data-v="1">Hours or dollars saved, against a baseline we set first</button></div>
+    </fieldset>
+    <fieldset class="q" data-dim="people" data-pillar="strategy" data-kind="evidence">
+      <legend><span class="part">Part 2 · What actually happens</span>Last week, how much time did you personally spend trying or building something with AI?</legend>
+      <div class="opts"><button type="button" class="opt" data-v="0" data-tag="calendar">None, my calendar won't allow it</button><button type="button" class="opt" data-v=".3" data-tag="calendar">Under an hour</button><button type="button" class="opt" data-v=".7">A few hours</button><button type="button" class="opt" data-v="1">I build alongside my team every week</button></div>
+    </fieldset>
+
+    <div class="qnav"><button type="button" id="backBtn" disabled>← Back</button><span></span></div>
+  </div>
+</section>
+
+<section id="results" hidden aria-live="polite">
+  <div class="wrap">
+    <div class="res-head">
+      <div class="lvl"><span id="rLevel">Level 2 of 5</span><span class="score-big" id="rScore">42 / 100</span></div>
+      <h2 id="rTitle">Experimenting</h2>
+      <p id="rSummary"></p>
+    </div>
+
+    <div class="deal-zone">
+      <div class="pack" id="pack"><img src="/assets/logos/lxd-mark.png" alt=""></div>
+      <button class="btn gold" id="dealBtn" type="button" style="cursor:pointer">Deal my hand</button>
+      <div class="table" id="table"></div>
+      <p class="flip-hint" id="flipHint" hidden>Tap a card to flip it.</p>
+    </div>
+
+    <div class="scores">
+      <div class="mini-ring" id="ring"></div>
+      <div>
+        <div class="lens" role="tablist" aria-label="Score view">
+          <button type="button" class="on" data-lens="loop" role="tab">Capability loop</button>
+          <button type="button" data-lens="pillars" role="tab">Readiness pillars</button>
+        </div>
+        <ul class="bars" id="bars"></ul>
+      </div>
+    </div>
+
+    <div class="report">
+      <div>
+        <div class="eyebrow">Full report</div>
+        <h3>Get the full report by email</h3>
+        <ul>
+          <li>What Level 5 looks like on each of your six scores</li>
+          <li>A 30-day plan for your archetype</li>
+          <li>The first workflow we'd build, and how to measure it</li>
+        </ul>
+      </div>
+      <form id="reportForm">
+        <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+        <input type="text" name="company" placeholder="Company" autocomplete="organization">
+        <button class="btn gold" type="submit" style="cursor:pointer;justify-content:center">Send me the full report</button>
+        <p class="ok" id="reportOk" hidden></p>
+      </form>
+    </div>
+
+    <div class="after">
+      <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="check-results">Walk through it with David &amp; Vedansh</a>
+      <button class="btn ghost" type="button" id="shareBtn">Copy link to my results</button>
+      <button class="btn ghost" type="button" id="retakeBtn">Retake</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div><img class="logo" src="/assets/logos/lxd-mark.png" alt="LXD" width="34" height="34" style="display:inline-block;vertical-align:middle;margin-right:8px"> Learning By Design AI</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="http://linkedin.com/company/learningxdesign">LinkedIn</a>
+      <a href="https://learningbydesign.substack.com">Substack</a>
+      <a href="/agents">For AI agents</a>
+      <a href="https://cal.com/davidfu/30min">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // nav (same as other pages)
+  var btn=document.getElementById('menuBtn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){ var o=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',o); });
+  var dd=document.querySelector('.dd');
+  document.addEventListener('click',function(e){ if(dd&&!dd.contains(e.target)) dd.removeAttribute('open'); });
+
+  var $=function(id){return document.getElementById(id)};
+  var dl=window.dataLayer=window.dataLayer||[];
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var DIMS={
+    brain:{n:'01',name:'The brain',belief:'Our AI knows our business',fix:'Connect your data once (CRM, pricing, docs) so every AI tool starts from the same truth.'},
+    skills:{n:'02',name:'Skills',belief:'Our know-how is reusable',fix:"Write your best people's methods down as skills anyone can call."},
+    workflows:{n:'03',name:'Workflows',belief:'AI does real work, end to end',fix:'Pick one workflow that matters and get it into production, with an owner.'},
+    apps:{n:'04',name:'Apps',belief:'Teams get safe AI tools fast',fix:'Give teams an approved way to build on shared data, so they stop buying around it.'},
+    measure:{n:'05',name:'Metrics and ROI',belief:'We know our AI ROI',fix:'Set a baseline before the next workflow: hours, dollars, tokens and licenses.'},
+    people:{n:'',name:'People',belief:'Our people have time to experiment',fix:'Protect time to experiment, starting with your own calendar.'}
+  };
+  var PILLARS={strategy:'Strategy',data:'Data',skills:'Skills',governance:'Governance',roi:'ROI'};
+  var ARCH={
+    collector:{name:'The Tool Collector',tag:'Licenses everywhere. Workflows nowhere.',body:"Every team has a new AI subscription, and none of them talk to each other or to your data.",move:'Freeze new licenses for 30 days. Pick one workflow that matters and get it into production.'},
+    graveyard:{name:'The Pilot Graveyard',tag:'Lots of pilots. Nothing in production.',body:'Every pilot proved it could work. None got an owner, a baseline or a finish line.',move:'Pick the pilot closest to money or time saved. Give it an owner and 30 days to go live.'},
+    wizard:{name:'The Lone Wizard',tag:'One person is brilliant with AI. Everyone else asks them.',body:"Your best AI know-how lives in one person's head and one person's account. When they're out, so is your AI.",move:"Turn the wizard's best prompts into shared skills the whole team can call."},
+    dashboard:{name:'The Dashboard Optimist',tag:'Great charts. Few users.',body:"You can see usage and spend, but the people the dashboard counts aren't changing how they work.",move:'Put one workflow in front of a real team and measure what changes for them.'},
+    ring:{name:'The Ring Forger',tag:'Building one tool to rule them all.',body:'The platform is meant to do everything for everyone, so nothing ships. The scope grows faster than the value.',move:'Shrink to one workflow that matters. Let the platform grow out of the loop, not ahead of it.'},
+    calendar:{name:'The Calendar Hostage',tag:'No time to experiment, so nobody else does either.',body:'When the leader has no time to try AI, the team reads it as permission to skip it too. Experimentation quietly dies.',move:'Block two hours a week. Build something small with AI and show your team. They copy what you do.'},
+    blackbox:{name:'The Black Box Spender',tag:'Paying for AI. Nobody knows what it returns.',body:"You can't say what AI saved last month, and maybe not even what it cost in licenses and tokens.",move:"Set a baseline this month: licenses, token spend and hours on the one workflow you'd automate first."},
+    compounder:{name:'The Compounder',tag:'The loop is spinning.',body:'Shared brain, shared skills, workflows in production and numbers you trust. Each lap gets faster and cheaper.',move:'Bring the next team onto the loop, and review your top token sinks every quarter.'}
+  };
+  var LEVELS=[[20,'Curious','You have interest and maybe some tools. Nothing is connected yet.'],
+              [40,'Experimenting','People are trying AI. Little of it is shared, measured or in production.'],
+              [60,'Operational','Your first workflows are real. Now make them shared and measured.'],
+              [80,'Scaling','The loop is working in places. Spread it and keep the numbers honest.'],
+              [101,'Compounding','Each lap is faster and cheaper. Protect it.']];
+
+  var qs=[].slice.call(document.querySelectorAll('.q'));
+  var answers=new Array(qs.length).fill(-1), cur=0;
+
+  function show(i){
+    cur=i;
+    qs.forEach(function(q,j){ q.classList.toggle('on',j===i); });
+    $('pLabel').textContent=(i+1)+' of '+qs.length;
+    $('pBar').style.width=(i/qs.length*100)+'%';
+    $('backBtn').disabled=i===0;
+  }
+  qs.forEach(function(q,qi){
+    q.querySelectorAll('.opt').forEach(function(o,oi){
+      o.addEventListener('click',function(){
+        answers[qi]=oi;
+        q.querySelectorAll('.opt').forEach(function(x){x.classList.toggle('sel',x===o)});
+        if(qi===0) dl.push({event:'check_start'});
+        setTimeout(function(){ qi<qs.length-1 ? show(qi+1) : finish(); }, reduce?0:220);
+      });
+    });
+  });
+  $('backBtn').addEventListener('click',function(){ if(cur>0) show(cur-1); });
+  $('startBtn').addEventListener('click',function(){ $('quiz').scrollIntoView({behavior:reduce?'auto':'smooth'}); });
+
+  function opt(qi){ return qs[qi].querySelectorAll('.opt')[answers[qi]]; }
+  function val(qi){ return parseFloat(opt(qi).dataset.v); }
+
+  function score(){
+    var by={}, pil={}, tags={};
+    qs.forEach(function(q,qi){
+      var d=q.dataset.dim, k=q.dataset.kind, o=opt(qi), v=val(qi);
+      by[d]=by[d]||{}; by[d][k]=v; by[d][k+'Text']=o.textContent; by[d][k+'Q']=qi;
+      if(k==='evidence'){ var p=q.dataset.pillar; pil[p]=pil[p]||[]; pil[p].push(v); }
+      (o.dataset.tag||'').split(' ').filter(Boolean).forEach(function(t){ tags[t]=(tags[t]||0)+1; });
+    });
+    var ev=Object.keys(DIMS).map(function(d){return by[d].evidence});
+    var avg=ev.reduce(function(a,b){return a+b},0)/ev.length;
+    var total=Math.round(avg*100);
+    var lvl=0; while(total>=LEVELS[lvl][0]) lvl++;
+
+    // archetype: strongest signal wins; compounder overrides when the evidence is strong
+    var E=function(d){return by[d].evidence}, B=function(d){return by[d].belief};
+    var s={collector:0,graveyard:0,wizard:0,dashboard:0,ring:0,calendar:0,blackbox:0};
+    if(tags.ring) s.ring+=3;
+    if(tags.graveyard) s.graveyard+=3;
+    if(E('people')===0) s.calendar+=3; else if(tags.calendar) s.calendar+=1.5;
+    if(tags.calendar && B('people')<=.5) s.calendar+=1;
+    if(E('measure')<=.25) s.blackbox+=2.5 + (B('measure')>=.75?.5:0);
+    if(tags.collector) s.collector+=2*tags.collector + (E('workflows')<=.15?.5:0);
+    if(tags.wizard) s.wizard+=2.5 + (E('brain')<=.55?.5:0);
+    if(E('measure')>=.6 && (E('skills')+E('people'))/2<.5) s.dashboard+=2.5;
+    var arch='', best=0;
+    Object.keys(s).forEach(function(k){ if(s[k]>best){best=s[k];arch=k;} });
+    if(avg>=.75 && Object.keys(DIMS).every(function(d){return E(d)>=.55})) arch='compounder';
+    if(!arch){ // no strong signal: name the archetype of the weakest layer
+      var low=lowest(by);
+      arch={brain:'wizard',skills:'wizard',workflows:'graveyard',apps:'collector',measure:'blackbox',people:'calendar'}[low];
+    }
+    return {by:by,pil:pil,total:total,level:lvl,arch:arch};
+  }
+  function lowest(by){
+    var low=null; Object.keys(DIMS).forEach(function(d){ if(low===null||by[d].evidence<by[low].evidence) low=d; }); return low;
+  }
+  var AGREE=['Strongly disagree','Disagree','Not sure','Agree','Strongly agree'];
+
+  function cardsFor(r){
+    var a=ARCH[r.arch], L=LEVELS[r.level];
+    var cards=[{cls:'arch',html:'<div class="kick">Your archetype</div><h4>'+a.name+'</h4><div class="tag">'+a.tag+'</div><p>'+a.body+'</p><div class="fix"><b>First move.</b> '+a.move+'</div>'}];
+    var gaps=Object.keys(DIMS).map(function(d){ var x=r.by[d]; return {d:d,g:x.belief-x.evidence,x:x}; });
+    var spots=gaps.filter(function(g){return g.g>=.4}).sort(function(a,b){return b.g-a.g}).slice(0,3);
+    var strong=gaps.filter(function(g){return g.g<=-.4}).sort(function(a,b){return a.g-b.g}).slice(0,1);
+    spots.forEach(function(g){
+      var D=DIMS[g.d];
+      cards.push({cls:'spot',html:'<div class="kick">Blind spot · '+(D.n?D.n+' ':'')+D.name+'</div><h4>"'+D.belief+'"</h4><div class="said">You said: '+AGREE[Math.round(g.x.belief*4)]+'</div><div class="real">What happens: '+g.x.evidenceText+'</div><div class="fix"><b>Fix.</b> '+D.fix+'</div>'});
+    });
+    strong.forEach(function(g){
+      var D=DIMS[g.d];
+      cards.push({cls:'strength',html:'<div class="kick">Hidden strength · '+D.name+'</div><h4>Further along than you think</h4><div class="said">You said: '+AGREE[Math.round(g.x.belief*4)]+'</div><div class="real">What happens: '+g.x.evidenceText+'</div><div class="fix"><b>Use it.</b> Make this your proof point when you ask for the next investment.</div>'});
+    });
+    if(!spots.length) cards.push({cls:'strength',html:'<div class="kick">No blind spots</div><h4>Clear-eyed</h4><p>What you believe matches what actually happens, layer by layer. That is rarer than it sounds.</p><div class="fix"><b>Next.</b> '+DIMS[lowest(r.by)].fix+'</div>'});
+    return cards;
+  }
+
+  function ring(r){
+    var order=['brain','skills','workflows','apps','measure'], cx=160, cy=160, R=112, out='';
+    out+='<svg viewBox="0 0 320 320" role="img" aria-label="Your scores on the AI capability loop">';
+    out+='<circle cx="160" cy="160" r="112" fill="none" stroke="#FAD392" stroke-width="2" stroke-dasharray="5 5"/>';
+    var low=lowest(r.by);
+    order.forEach(function(d,i){
+      var ang=(-90+i*72)*Math.PI/180, x=cx+R*Math.cos(ang), y=cy+R*Math.sin(ang), v=r.by[d].evidence;
+      var sc=Math.max(1,Math.round(v*10));
+      out+='<circle cx="'+x+'" cy="'+y+'" r="36" fill="'+(d===low?'#B87030':'#FAD392')+'" fill-opacity="'+(.25+.75*v).toFixed(2)+'" stroke="'+(d===low?'#B87030':'#E8DEC9')+'" stroke-width="2"/>';
+      out+='<text x="'+x+'" y="'+(y-3)+'" text-anchor="middle" font-size="18" font-weight="700" fill="#081828">'+sc+'</text>';
+      out+='<text x="'+x+'" y="'+(y+14)+'" text-anchor="middle" font-size="10" fill="#081828">'+DIMS[d].n+' '+(d==='measure'?'Metrics':DIMS[d].name.replace('The ',''))+'</text>';
+    });
+    var pv=r.by.people.evidence;
+    out+='<circle cx="160" cy="160" r="44" fill="#1E3A5F" fill-opacity="'+(.35+.65*pv).toFixed(2)+'" stroke="'+(low==='people'?'#B87030':'none')+'" stroke-width="3"/>';
+    out+='<text x="160" y="158" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">'+Math.max(1,Math.round(pv*10))+'</text>';
+    out+='<text x="160" y="176" text-anchor="middle" font-size="11" fill="#fff">People</text></svg>';
+    $('ring').innerHTML=out;
+  }
+  function bars(r,lens){
+    var rows=[];
+    if(lens==='pillars'){
+      Object.keys(PILLARS).forEach(function(p){ var a=r.pil[p]; rows.push({k:p,label:PILLARS[p],v:a.reduce(function(x,y){return x+y},0)/a.length}); });
+    } else {
+      Object.keys(DIMS).forEach(function(d){ rows.push({k:d,label:(DIMS[d].n?DIMS[d].n+' ':'')+DIMS[d].name,v:r.by[d].evidence}); });
+    }
+    var min=Math.min.apply(null,rows.map(function(x){return x.v}));
+    var lowDone=false;
+    $('bars').innerHTML=rows.map(function(x){
+      var isLow=!lowDone && x.v===min; if(isLow) lowDone=true;
+      var sc=Math.max(1,Math.round(x.v*10));
+      return '<li'+(isLow?' class="low"':'')+'><span>'+x.label+'</span><span class="track"><i style="width:'+(sc*10)+'%"></i></span><b>'+sc+'</b></li>';
+    }).join('');
+    $('ring').style.display=lens==='pillars'?'none':'';
+  }
+
+  var R=null;
+  function finish(fromLink){
+    R=score();
+    var L=LEVELS[R.level];
+    $('pBar').style.width='100%';
+    $('rLevel').textContent='Level '+(R.level+1)+' of 5';
+    $('rScore').textContent=R.total+' / 100';
+    $('rTitle').textContent=L[1];
+    $('rSummary').textContent=L[2];
+    $('table').innerHTML=''; $('flipHint').hidden=true;
+    $('pack').style.display=''; $('dealBtn').style.display='';
+    ring(R); bars(R,'loop');
+    document.querySelectorAll('.lens button').forEach(function(b){ b.classList.toggle('on',b.dataset.lens==='loop'); });
+    $('intro').hidden=true; $('quiz').hidden=true; $('results').hidden=false;
+    history.replaceState(null,'','#a='+answers.join(''));
+    window.scrollTo(0,0);
+    if(!fromLink) dl.push({event:'check_complete',archetype:R.arch,score:R.total});
+  }
+
+  $('dealBtn').addEventListener('click',function(){
+    var pack=$('pack'); pack.classList.add('shake');
+    setTimeout(function(){
+      pack.style.display='none'; $('dealBtn').style.display='none';
+      var cards=cardsFor(R);
+      $('table').innerHTML=cards.map(function(c,i){
+        return '<div class="pcard '+c.cls+'" style="--i:'+i+'" tabindex="0" role="button" aria-label="Card '+(i+1)+', press to flip"><div class="pc-inner"><div class="pc-back"><img src="/assets/logos/lxd-mark.png" alt=""></div><div class="pc-face">'+c.html+'</div></div></div>';
+      }).join('');
+      var els=[].slice.call(document.querySelectorAll('.pcard'));
+      els.forEach(function(el,i){
+        var t=function(){ el.classList.toggle('up'); };
+        el.addEventListener('click',t);
+        el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();t();} });
+        setTimeout(function(){ el.classList.add('up'); }, reduce?0:(cards.length*320+500+i*450));
+      });
+      $('flipHint').hidden=false;
+      dl.push({event:'check_deal'});
+    }, reduce?0:450);
+  });
+
+  document.querySelectorAll('.lens button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.lens button').forEach(function(x){x.classList.toggle('on',x===b)});
+      bars(R,b.dataset.lens);
+    });
+  });
+
+  // TODO before launch: post to the CRM (HubSpot form or a Vercel function). Not wired in the prototype.
+  $('reportForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=$('reportOk'); ok.hidden=false;
+    ok.textContent='Prototype: email capture is not connected yet, so nothing was sent.';
+    dl.push({event:'check_report_request',archetype:R&&R.arch});
+  });
+  $('shareBtn').addEventListener('click',function(){
+    var b=this; navigator.clipboard&&navigator.clipboard.writeText(location.href).then(function(){ b.textContent='Link copied'; setTimeout(function(){b.textContent='Copy link to my results'},1800); });
+  });
+  $('retakeBtn').addEventListener('click',function(){
+    answers.fill(-1); document.querySelectorAll('.opt.sel').forEach(function(x){x.classList.remove('sel')});
+    history.replaceState(null,'',location.pathname);
+    $('results').hidden=true; $('intro').hidden=false; $('quiz').hidden=false; show(0); window.scrollTo(0,0);
+  });
+
+  // shared results link: #a=<one digit per question>
+  var m=location.hash.match(/^#a=(\d+)$/);
+  if(m && m[1].length===qs.length){
+    var okAll=true;
+    m[1].split('').forEach(function(c,i){ var n=+c; if(n>=qs[i].querySelectorAll('.opt').length) okAll=false; answers[i]=n; });
+    if(okAll){ finish(true); return; }
+    answers.fill(-1);
+  }
+  show(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "skills": [
+    {
+      "name": "ai-capability-maturity",
+      "description": "Run a 12-question AI Capability Maturity check with a leader: maturity level, archetype and blind spots.",
+      "url": "https://learningbydesign.ai/skills/ai-capability-maturity/SKILL.md",
+      "sha256": "43c220e31960c68ea0c752bdbbd4f079911f6caba7ca636c63d052c892f11e1a"
+    }
+  ]
+}
