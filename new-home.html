@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=' js'</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning By Design AI · 10x the impact of your learning organization</title>
+<meta name="description" content="For learning and impact organizations: we replace your legacy learning stack with an AI-native system and coach your team to run it. One player-coach partner, from A to B.">
+<!-- PROTOTYPE of the next homepage. Not linked, not in the sitemap. Plan: docs/homepage-reframe-plan.md -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="icon" href="/assets/logos/lxd-mark-64.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/lxd.css">
+<style>
+  /* ---- page-specific (prototype) ---- */
+  .proto{background:var(--orange);color:#fff;text-align:center;font-family:var(--display);font-weight:600;font-size:13px;padding:7px 16px;letter-spacing:.02em}
+  .proto a{color:#fff}
+
+  /* hero A-to-B panel */
+  .ab{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 40px -28px rgba(8,24,40,.35)}
+  .ab .eyebrow{font-size:11.5px}
+  .ab ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:7px}
+  .ab li{font-size:14px;padding:8px 12px;border-radius:10px;background:var(--paper)}
+  .ab .out li{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--orange);text-decoration-thickness:2px}
+  .ab .in li{background:var(--ink);color:#fff;font-family:var(--display);font-weight:600}
+  .ab .in li span{color:var(--gold)}
+  .ab .arrow{text-align:center;font-family:var(--display);font-weight:700;color:var(--orange);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:14px 0 4px}
+
+  /* flip cards: vanity number -> impact number */
+  .flips{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .flip{position:relative;border:0;padding:0;background:none;cursor:pointer;text-align:left;font:inherit;color:inherit;
+    min-height:170px;perspective:1000px}
+  .flip .face{position:absolute;inset:0;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+  .flip .front{background:#fff;border:1px solid var(--line)}
+  .flip .back{background:var(--ink);color:#c3cdda;transform:rotateY(180deg)}
+  .flip[aria-pressed="true"] .front{transform:rotateY(-180deg)}
+  .flip[aria-pressed="true"] .back{transform:rotateY(0)}
+  .flip .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .flip .front .k{color:var(--muted)}
+  .flip .back .k{color:var(--gold)}
+  .flip .h{display:block;font-family:var(--display);font-weight:700;line-height:1.1;font-size:22px;margin:10px 0 6px}
+  .flip .front .h{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--orange);text-decoration-thickness:3px}
+  .flip .back .h{color:#fff}
+  .flip .p{display:block;font-size:14px;margin:0}
+  .flip .front .p{color:var(--muted)}
+  .flip .hint{margin-top:auto;font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--orange)}
+  .flip:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:16px}
+  .flip-ctl{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .flip-ctl .count{font-family:var(--display);font-weight:600;font-size:14px;color:var(--muted)}
+
+  /* what goes / what you get */
+  .swap{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:26px}
+  .swap .col{border-radius:16px;padding:22px 24px}
+  .swap .goes{background:var(--paper2);border:1px solid var(--line)}
+  .swap .gets{background:var(--navy);color:#e7eef6}
+  .swap h3{font-size:17px;margin-bottom:12px}
+  .swap .gets h3{color:var(--gold)}
+  .swap ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:15px}
+  .swap .goes li{color:var(--muted)}
+  .swap .mid{display:flex;align-items:center;font-family:var(--display);font-weight:700;font-size:26px;color:var(--orange)}
+
+  /* player-coach */
+  .card.pc{border-top:4px solid var(--navy)}
+  .card.pc .who{font-family:var(--display);font-weight:600;font-size:13px;color:var(--orange);margin-bottom:6px}
+  .fit{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:22px}
+  .fit .col{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .fit .col.no{background:var(--paper2)}
+  .fit h3{font-size:16px;margin-bottom:10px}
+  .fit ul{margin:0;padding-left:18px;display:grid;gap:7px;font-size:14.5px;color:var(--muted)}
+  .fit .rule{grid-column:1/-1;font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);
+    background:var(--gold-soft);border:1px solid var(--gold);border-radius:12px;padding:14px 18px;margin:0}
+
+  /* interviews band */
+  .interviews{background:var(--peach)}
+  .interviews .inner{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center}
+  .interviews h2{font-size:clamp(28px,3.6vw,42px);margin-top:10px}
+  .interviews p{font-size:17px;color:var(--ink);margin-top:14px}
+  .interviews .prompts{background:#fff;border-radius:16px;padding:20px 22px;border:1px solid rgba(8,24,40,.08)}
+  .interviews .prompts .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+  .interviews .prompts ol{margin:10px 0 0;padding-left:20px;display:grid;gap:8px;font-size:15px}
+
+  @media(max-width:920px){
+    .flips{grid-template-columns:1fr 1fr}
+    .swap{grid-template-columns:1fr}
+    .swap .mid{justify-content:center;transform:rotate(90deg)}
+    .fit,.interviews .inner{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){ .flips{grid-template-columns:1fr} }
+  @media(prefers-reduced-motion:reduce){ .flip .face{transition:none} }
+</style>
+</head>
+<body>
+
+<div class="proto">Prototype of the next homepage · not live · the current homepage is unchanged · <a href="/ai-workflows">see the AI workflows offer</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img class="logo" src="/assets/logos/lxd-mark.png" alt="LXD" width="34" height="34"> Learning By Design AI</a>
+    <nav class="nav-links" id="nav" aria-label="Main">
+      <a href="#truth">The truth</a>
+      <a href="#offer">The offer</a>
+      <a href="#proof">Why us</a>
+      <a href="/blog.html">Writing</a>
+      <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="v2-nav">Book a call</a>
+    </nav>
+    <button class="menu-toggle" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======= HERO ======= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">For learning and impact organizations</div>
+      <h1>10x the impact of your learning organization. <span class="b">Built with you.</span></h1>
+      <p class="lede">We replace your legacy learning stack with an AI-native system, and coach your team to run it. One player-coach partner, the whole way from where you are to where your mission needs you.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="v2-hero">Book a call with David &amp; Vedansh</a>
+        <a class="btn ghost" href="#truth">The uncomfortable truth</a>
+      </div>
+      <p class="trust">Built with learning and impact teams at <b>Springboard</b>, <b>100 School</b>, <b>General Assembly</b>, <b>Reforge</b>, <b>JFF</b>, <b>Imagine Worldwide</b> and <b>Penn GSE</b>.</p>
+    </div>
+    <div class="ab" aria-label="From A to B">
+      <div class="out">
+        <div class="eyebrow">A · today</div>
+        <ul>
+          <li>Legacy LMS and print</li>
+          <li>Five vendors, one contractor</li>
+          <li>Completion rates for funders</li>
+        </ul>
+      </div>
+      <div class="arrow">&darr; 90 days to first results &darr;</div>
+      <div class="in">
+        <div class="eyebrow">B · with us</div>
+        <ul>
+          <li>One AI-native learning system</li>
+          <li>Your team building on it</li>
+          <li>Outcomes funders <span>believe</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= THE UNCOMFORTABLE TRUTH ======= -->
+<section class="band-dark" id="truth">
+  <div class="wrap reveal">
+    <div class="eyebrow">The uncomfortable truth</div>
+    <h2>For a decade, learning has tracked numbers that <span class="g">prove nothing.</span></h2>
+    <p>Enrollments. Completions. Minutes watched. Smile sheets on the last day. They fill board decks and grant reports. They don't show that anyone's life changed, and they have never earned a single referral. The platforms built on them are shrinking, and the people who built them know why.</p>
+    <p class="goal">We're done counting. Let's build the thing that counts.</p>
+  </div>
+</section>
+
+<!-- ======= FLIP THE NUMBERS (interactive) ======= -->
+<section id="numbers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Your numbers, honestly</div>
+      <h2>Swap the numbers you report for the ones that matter.</h2>
+      <p>Tap a card. Most learning organizations can answer the front. Very few can answer the back. That gap is where we start.</p>
+    </div>
+    <div class="flips reveal" id="flips">
+      <button class="flip" aria-pressed="false">
+        <span class="face front"><span class="k">What you report</span><span class="h">Enrollments</span><span class="p">How many people signed up.</span><span class="hint">Flip &rarr;</span></span>
+        <span class="face back"><span class="k">What matters</span><span class="h">Who can now do the job</span><span class="p">Learners who can do something they couldn't before, shown on real work.</span></span>
+      </button>
+      <button class="flip" aria-pressed="false">
+        <span class="face front"><span class="k">What you report</span><span class="h">Completion rate</span><span class="p">How many clicked to the end.</span><span class="hint">Flip &rarr;</span></span>
+        <span class="face back"><span class="k">What matters</span><span class="h">Skills demonstrated</span><span class="p">Assessment on real tasks, scored with evidence, not quiz averages.</span></span>
+      </button>
+      <button class="flip" aria-pressed="false">
+        <span class="face front"><span class="k">What you report</span><span class="h">Minutes watched</span><span class="p">Seat time, dressed up as engagement.</span><span class="hint">Flip &rarr;</span></span>
+        <span class="face back"><span class="k">What matters</span><span class="h">Time to first outcome</span><span class="p">How fast a learner gets the job, the raise, or the result they came for.</span></span>
+      </button>
+      <button class="flip" aria-pressed="false">
+        <span class="face front"><span class="k">What you report</span><span class="h">Day-one satisfaction</span><span class="p">A smile sheet before anything changed.</span><span class="hint">Flip &rarr;</span></span>
+        <span class="face back"><span class="k">What matters</span><span class="h">Referrals at six months</span><span class="p">Learners and employers who send you the next cohort, unprompted.</span></span>
+      </button>
+      <button class="flip" aria-pressed="false">
+        <span class="face front"><span class="k">What you report</span><span class="h">Cost per learner</span><span class="p">Cheaper seats, same results.</span><span class="hint">Flip &rarr;</span></span>
+        <span class="face back"><span class="k">What matters</span><span class="h">Cost per outcome</span><span class="p">What it takes to change one life, the number funders actually want.</span></span>
+      </button>
+      <button class="flip" aria-pressed="false">
+        <span class="face front"><span class="k">What you report</span><span class="h">Courses published</span><span class="p">Content volume, built once and left to age.</span><span class="hint">Flip &rarr;</span></span>
+        <span class="face back"><span class="k">What matters</span><span class="h">Learning that adapts</span><span class="p">AI tutors and coaches that meet each learner where they are, every day.</span></span>
+      </button>
+    </div>
+    <div class="flip-ctl">
+      <button class="btn ghost" id="flipAll" type="button">Flip all</button>
+      <span class="count" id="flipCount" aria-live="polite">0 of 6 flipped</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= THE OFFER ======= -->
+<section id="offer" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The offer</div>
+      <h2>We replace your whole learning stack. And we do it with you.</h2>
+      <p>Not a pilot. Not three tools bolted onto a legacy LMS. One partner who owns the transformation from A to B, working beside your team the whole way.</p>
+    </div>
+    <div class="cards four">
+      <article class="card step reveal">
+        <div class="k">Weeks 1 to 2</div>
+        <span class="tag">Honest baseline</span>
+        <h3>Leave the vanity numbers at the door</h3>
+        <p>What you report, what you promise funders, and the one outcome that would prove your impact.</p>
+      </article>
+      <article class="card step reveal">
+        <div class="k">Days 1 to 90</div>
+        <span class="tag">Build and coach</span>
+        <h3>First AI workflows live</h3>
+        <p>Your curriculum, data and know-how in one shared brain. AI tutoring, feedback and learner support go live on top, with your staff building beside us.</p>
+      </article>
+      <article class="card step reveal">
+        <div class="k">Months 4 to 9</div>
+        <span class="tag">Replace the stack</span>
+        <h3>Your own AI-native learning system</h3>
+        <p>Move off the LMS, the LXP and the print. A learning product that is yours, on infrastructure you own.</p>
+      </article>
+      <article class="card step reveal">
+        <div class="k">Month 12 and on</div>
+        <span class="tag">Prove it</span>
+        <h3>Impact you can show</h3>
+        <p>A live impact scorecard, grant reports that draft themselves, and a team that keeps building after we step back.</p>
+      </article>
+    </div>
+    <div class="swap reveal">
+      <div class="col goes">
+        <h3>What goes</h3>
+        <ul>
+          <li>The legacy LMS or LXP, and its seat licenses</li>
+          <li>Print workbooks and static slide decks</li>
+          <li>Survey tools and day-one smile sheets</li>
+          <li>Five to seven vendors and the IT contractor</li>
+          <li>Funder reports rebuilt by hand every quarter</li>
+        </ul>
+      </div>
+      <div class="mid" aria-hidden="true">&rarr;</div>
+      <div class="col gets">
+        <h3>What you get</h3>
+        <ul>
+          <li>One shared brain: curriculum, learner data and outcomes</li>
+          <li>AI tutors and coaches that know your learners</li>
+          <li>Assessment on real work, not quiz scores</li>
+          <li>One partner accountable for the whole thing</li>
+          <li>Impact numbers that update themselves</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIDDEN (player-coach section, hidden 2026-11-11 to streamline) =======
+[ ======= PLAYER-COACH ======= ]
+<section id="coach" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Player-coach, not vendor</div>
+      <h2>Done with you. Never done to you.</h2>
+      <p>Your platform vendor isn't coaching you. Your IT contractor isn't either. We play and coach at the same time, so the capability stays when we step back.</p>
+    </div>
+    <div class="cards">
+      <article class="card pc reveal">
+        <div class="k">We play</div>
+        <div class="who">Vedansh and the build team</div>
+        <h3>We ship the system</h3>
+        <p>The brain, the AI tutors, the assessments, the data layer. Production software, not prototypes.</p>
+      </article>
+      <article class="card pc reveal">
+        <div class="k">We coach</div>
+        <div class="who">David, beside your leaders</div>
+        <h3>Your people learn to build</h3>
+        <p>Leaders and staff learn to run it, extend it and write their own skills on it. By month three they are shipping, not filing tickets.</p>
+      </article>
+      <article class="card pc reveal">
+        <div class="k">You own it</div>
+        <div class="who">Your content, your data, your product</div>
+        <h3>No lock-in</h3>
+        <p>No seat licenses to a platform that is shrinking. What we build together belongs to you.</p>
+      </article>
+    </div>
+    <div class="fit reveal">
+      <div class="col">
+        <h3>Who this is for</h3>
+        <ul>
+          <li>Learning and impact organizations, roughly 20 to 200 people, whose mission runs on learning: workforce and career training, bootcamps, professional and executive education, nonprofits that teach.</li>
+          <li>Still on a legacy LMS, print, or a bootcamp-in-a-box.</li>
+          <li>Outcome goals that aren't moving, or funders asking for more than completions.</li>
+          <li>A leader who would rather build the new thing than defend the old numbers.</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>Who this isn't for</h3>
+        <ul>
+          <li>Anyone looking for a pilot.</li>
+          <li>Teams who want it done to them and handed over.</li>
+          <li>Anyone happy with the numbers they report today.</li>
+        </ul>
+      </div>
+      <p class="rule">We only take on whole transformations. That is how we get results, and how you get a story worth telling your funders.</p>
+    </div>
+  </div>
+</section>
+======= END HIDDEN -->
+
+<!-- ======= WHY US / PROOF ======= -->
+<section id="proof" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Why us</div>
+      <h2>We've spent our careers inside learning organizations.</h2>
+      <p>David co-founded a school network in Johannesburg, helped scale a developer training program across Africa, and teaches education entrepreneurship at Penn GSE. Vedansh ships AI-native products end to end. We've seen the old numbers from the inside, and we've built what replaces them.</p>
+    </div>
+    <div class="stats reveal">
+      <span class="lead"><b>100 School &times; BCG:</b> an AI upskilling rollout for 300+ employees globally, measured on capability, not completions</span>
+      <span><b>7% &rarr; 75%</b>AI fluency</span>
+      <span><b>49% &rarr; 86%</b>confident AI use</span>
+      <span><b>90%+</b>completion</span>
+    </div>
+    <div class="logoband reveal" style="margin-top:30px">
+      <div class="lab">Learning and impact teams we've built with</div>
+      <div class="logorow marquee" style="--dur:64s">
+        <div class="track">
+          <div class="group">
+            <span class="lchip" data-name="Streetlight Schools"><img src="assets/logos/streetlight-schools.png" alt="Streetlight Schools" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Springboard"><img src="assets/logos/springboard.png" alt="Springboard" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="100 School"><img src="assets/logos/100-school.png" alt="100 School" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip dark" data-name="African Leadership Group"><img src="assets/logos/alx.png" alt="African Leadership Group" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="General Assembly"><img src="assets/logos/general-assembly.png" alt="General Assembly" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="4.0 Schools"><img src="assets/logos/4-0-schools.png" style="height:34px" alt="4.0 Schools" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Reforge"><img src="assets/logos/reforge.png" alt="Reforge" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="JFF"><img src="assets/logos/jff.png" alt="JFF" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="CNA Simulations"><img src="assets/logos/cna-simulations.png" alt="CNA Simulations" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Imagine Worldwide"><img src="assets/logos/imagine-worldwide.png" alt="Imagine Worldwide" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Edstruments"><img src="assets/logos/edstruments.png" alt="Edstruments" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Shine Early Learning"><img src="assets/logos/shine.png" alt="Shine Early Learning" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Ward Infinity"><img src="assets/logos/ward-infinity-wide.jpg" style="height:38px" alt="Ward Infinity" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Willow"><img src="assets/logos/willow.png" alt="Willow" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Mindset Copilot"><img src="assets/logos/mindset-copilot.png" alt="Mindset Copilot" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Penn GSE"><img src="assets/logos/penn-gse.png" alt="Penn GSE" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Cloudforce"><img src="assets/logos/cloudforce.png" alt="Cloudforce" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Promise Venture Studio"><img src="assets/logos/promise-venture-studio.png" alt="Promise Venture Studio" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Diffusion Venture Studio"><img src="assets/logos/diffusion.png" alt="Diffusion Venture Studio" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          </div>
+          <div class="group" aria-hidden="true">
+            <span class="lchip" data-name="Streetlight Schools"><img loading="lazy" src="assets/logos/streetlight-schools.png" alt="Streetlight Schools" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Springboard"><img loading="lazy" src="assets/logos/springboard.png" alt="Springboard" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="100 School"><img loading="lazy" src="assets/logos/100-school.png" alt="100 School" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip dark" data-name="African Leadership Group"><img loading="lazy" src="assets/logos/alx.png" alt="African Leadership Group" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="General Assembly"><img loading="lazy" src="assets/logos/general-assembly.png" alt="General Assembly" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="4.0 Schools"><img loading="lazy" src="assets/logos/4-0-schools.png" style="height:34px" alt="4.0 Schools" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Reforge"><img loading="lazy" src="assets/logos/reforge.png" alt="Reforge" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="JFF"><img loading="lazy" src="assets/logos/jff.png" alt="JFF" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="CNA Simulations"><img loading="lazy" src="assets/logos/cna-simulations.png" alt="CNA Simulations" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Imagine Worldwide"><img loading="lazy" src="assets/logos/imagine-worldwide.png" alt="Imagine Worldwide" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Edstruments"><img loading="lazy" src="assets/logos/edstruments.png" alt="Edstruments" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Shine Early Learning"><img loading="lazy" src="assets/logos/shine.png" alt="Shine Early Learning" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Ward Infinity"><img loading="lazy" src="assets/logos/ward-infinity-wide.jpg" style="height:38px" alt="Ward Infinity" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Willow"><img loading="lazy" src="assets/logos/willow.png" alt="Willow" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Mindset Copilot"><img loading="lazy" src="assets/logos/mindset-copilot.png" alt="Mindset Copilot" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Penn GSE"><img loading="lazy" src="assets/logos/penn-gse.png" alt="Penn GSE" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Cloudforce"><img loading="lazy" src="assets/logos/cloudforce.png" alt="Cloudforce" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Promise Venture Studio"><img loading="lazy" src="assets/logos/promise-venture-studio.png" alt="Promise Venture Studio" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Diffusion Venture Studio"><img loading="lazy" src="assets/logos/diffusion.png" alt="Diffusion Venture Studio" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="logoband reveal">
+      <div class="lab">Our clients are backed by</div>
+      <div class="logorow marquee" style="--dur:24s">
+        <div class="track">
+          <div class="group">
+            <span class="lchip" data-name="Gates Foundation"><img src="assets/logos/gates-foundation.png" alt="Gates Foundation" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Walton"><img src="assets/logos/walton.svg" alt="Walton" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="MSDF"><img src="assets/logos/msdf.svg" alt="MSDF" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Reach Capital"><img src="assets/logos/reach-capital.png" alt="Reach Capital" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Owl Ventures"><img src="assets/logos/owl-ventures.webp" alt="Owl Ventures" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          </div>
+          <div class="group" aria-hidden="true">
+            <span class="lchip" data-name="Gates Foundation"><img loading="lazy" src="assets/logos/gates-foundation.png" alt="Gates Foundation" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Walton"><img loading="lazy" src="assets/logos/walton.svg" alt="Walton" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="MSDF"><img loading="lazy" src="assets/logos/msdf.svg" alt="MSDF" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Reach Capital"><img loading="lazy" src="assets/logos/reach-capital.png" alt="Reach Capital" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+            <span class="lchip" data-name="Owl Ventures"><img loading="lazy" src="assets/logos/owl-ventures.webp" alt="Owl Ventures" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="qgrid">
+      <figure class="quote reveal">
+        <blockquote>"LXD has been a cheat code for 100 School. He didn't just advise, he showed up like a cofounder."</blockquote>
+        <figcaption>Max Haining · CEO, 100 School</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote>"I've been bragging on y'all all throughout my firm."</blockquote>
+        <figcaption>Senior leader, global bank</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- HIDDEN (interviews, hidden until interviews are running on Substack and LinkedIn) =======
+[ ======= UNCOMFORTABLE TRUTH INTERVIEWS ======= ]
+<section class="interviews" id="interviews">
+  <div class="wrap inner">
+    <div class="reveal">
+      <div class="eyebrow">The uncomfortable truth interviews</div>
+      <h2>Sick of the numbers too?</h2>
+      <p>We're interviewing people who built, ran and left learning companies and impact programs about what the numbers hid, and what would actually prove impact. If that's you, we'd love 30 minutes. No pitch.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="v2-interview">Share your story</a>
+        <a class="btn ghost" href="https://learningbydesign.substack.com" data-cta="v2-substack">Read the series</a>
+      </div>
+    </div>
+    <div class="prompts reveal">
+      <div class="k">What we ask</div>
+      <ol>
+        <li>Which number did your board celebrate that you didn't believe?</li>
+        <li>What would have proved your learners were better off?</li>
+        <li>What would you build if you started over today?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+======= END HIDDEN -->
+
+<!-- ======= TEAM ======= -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Your player-coaches</h2>
+    </div>
+    <div class="team-grid">
+      <div class="person reveal">
+        <div class="av"><img src="assets/team/david.jpg" alt="David Fu" loading="lazy"></div>
+        <div>
+          <h3>David Fu</h3>
+          <div class="role">Cofounder and CEO · the coach</div>
+          <p>Co-founded Streetlight Schools in Johannesburg and helped scale developer training across Africa. Upskilled leaders at JPMorgan and PNC; adjunct at Penn GSE.</p>
+          <a href="https://www.linkedin.com/in/davidthefu/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person reveal">
+        <div class="av"><img src="assets/team/vedansh.jpg" alt="Vedansh Garg" loading="lazy"></div>
+        <div>
+          <h3>Vedansh Garg</h3>
+          <div class="role">Cofounder and CTO · the player</div>
+          <p>Ships AI-native products end to end: sub-300ms voice AI, a writing product with 500K+ users in year one, and a governed data layer for an investment bank.</p>
+          <a href="https://www.linkedin.com/in/vedanshgarg/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person reveal">
+        <div class="av"><img src="assets/team/nicholas.jpg" alt="Nicholas Fok" loading="lazy"></div>
+        <div>
+          <h3>Nicholas Fok</h3>
+          <div class="role">Fractional AI CPO</div>
+          <p>Exited founder building AI-native products with Owl AI and Incubator School.</p>
+          <a href="https://www.linkedin.com/in/nickfok/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="person reveal">
+        <div class="av"><img src="assets/team/louis.jpg" alt="Louis Masensi" loading="lazy"></div>
+        <div>
+          <h3>Louis Masensi</h3>
+          <div class="role">Production delivery</div>
+          <p>Runs a team of Claude-certified developers who ship production software, not prototypes. Shine Early Learning, Michigan State University and more.</p>
+          <a href="https://www.linkedin.com/in/louis-masensi/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FINAL CTA (no other-offerings chips, by design) ======= -->
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 style="margin-top:0">Leave the vanity numbers at the door.</h2>
+    <p>Bring the outcome you promised your learners and your funders. We'll show you what we'd replace first, and what 10x would look like.</p>
+    <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="v2-final" style="font-size:17px;padding:15px 26px">Book a call with David &amp; Vedansh</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div><img class="logo" src="/assets/logos/lxd-mark.png" alt="LXD" width="34" height="34" style="display:inline-block;vertical-align:middle;margin-right:8px"> Learning By Design AI</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="http://linkedin.com/company/learningxdesign">LinkedIn</a>
+      <a href="https://learningbydesign.substack.com">Substack</a>
+      <a href="/agents">For AI agents</a>
+      <a href="https://cal.com/davidfu/30min">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var btn=document.getElementById('menuBtn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A') nav.classList.remove('open'); });
+
+  // flip cards
+  var flips=[].slice.call(document.querySelectorAll('.flip')),
+      count=document.getElementById('flipCount'), all=document.getElementById('flipAll');
+  function update(){
+    var n=flips.filter(function(f){return f.getAttribute('aria-pressed')==='true'}).length;
+    count.textContent=n===flips.length?'All 6 flipped. Can you report the back side today?':n+' of '+flips.length+' flipped';
+    all.textContent=n===flips.length?'Flip back':'Flip all';
+  }
+  flips.forEach(function(f){
+    f.addEventListener('click',function(){
+      f.setAttribute('aria-pressed',f.getAttribute('aria-pressed')==='true'?'false':'true'); update();
+    });
+  });
+  all.addEventListener('click',function(){
+    var target=all.textContent==='Flip all'?'true':'false';
+    flips.forEach(function(f,i){ setTimeout(function(){ f.setAttribute('aria-pressed',target); if(i===flips.length-1) update(); },i*90); });
+  });
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
