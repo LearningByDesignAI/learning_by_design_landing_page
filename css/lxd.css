@@ -91,6 +91,8 @@ img.logo{display:block;object-fit:cover}
 .scorecard li span{font-family:var(--body);font-weight:500;font-size:12.5px;color:var(--muted);white-space:nowrap}
 .scorecard li.roi{background:var(--ink);color:#fff}
 .scorecard li.roi span{color:var(--gold)}
+.scorecard li.roi{white-space:nowrap}
+.scorecard li.roi span{white-space:normal;text-align:right;max-width:150px;line-height:1.35}
 
 /* section heading */
 .sec-head{max-width:62ch}
