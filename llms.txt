@@ -1,12 +1,14 @@
 # Learning By Design AI
 
-> We build a shared AI brain inside your team, then ship AI agents and workflows that pay for themselves, measured against your own baseline. Lead offer: your first 3 ROI-positive AI agents, live in 3 months. Founded by David Fu (CEO) and Vedansh Garg (CTO).
+> We build a shared AI brain and AI agents and workflows that pay for themselves, side by side with your team, and help you measure and optimize ROI and token spend. Over time, your team becomes more capable to do the work themselves. Lead offer: your first 3 ROI-positive AI agents, live in 3 months. Founded by David Fu (CEO) and Vedansh Garg (CTO).
 
 Our point of view: AI transformation is a human agency problem disguised as a technology problem. AI ROI comes from amplifying people's judgment and expertise, not extracting it to cut headcount (Amplifying > Extracting). Our goal is to close the agency gap in 1,000 companies by 2030, without a single AI-driven layoff.
 
 ## The offer: your first 3 ROI-positive AI agents in 3 months
 
 What the work covers: AI strategy, AI upskilling, AI deployment and implementation, and AI measurement and optimization (including ROI and token spend).
+
+How we work: player-coach, done with you. We lead workflow 1, build workflow 2 side by side with your team, and coach your team as they lead workflow 3. Two scorecards: ROI against your baseline, and what your team can now do without us.
 
 
 - Weeks 1 to 2, baseline: interviews, a workflow map and today's numbers.
