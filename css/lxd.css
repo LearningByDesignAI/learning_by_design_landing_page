@@ -287,3 +287,98 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(
   .marquee .group{flex-wrap:wrap;padding-right:0;justify-content:flex-start}
   .marquee .group[aria-hidden]{display:none}
 }
+
+/* ==========================================================
+   v3 look (body.v3): homepage and /loop only, so /check, /agents and other pages keep theirs.
+   Editorial serif headings, the AI ROI Matrix palette (navy and rust on cream), Inter for UI,
+   gold as an accent only, no scroll fades.
+   ========================================================== */
+.v3{--serif:'Source Serif 4',Georgia,'Times New Roman',serif;--display:var(--body);
+  --navy:#1F2559;--orange:#A3502A;--paper:#FAF8F2;--line:#E6E1D6;--muted:#4F5566}
+.v3 h1,.v3 h2,.v3 h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;color:var(--navy)}
+.v3 .eyebrow{font-weight:600;font-size:12.5px;letter-spacing:.14em}
+.v3 .brand{font-weight:600}
+.v3 .btn{font-weight:600}
+.v3 .btn.gold{background:var(--navy);border-color:var(--navy);color:#fff}
+.v3 .nav-links a.btn{color:#fff}
+.v3 .btn.ghost{border-color:var(--navy);color:var(--navy)}
+.v3 header{background:rgba(250,248,242,.92)}
+
+.v3 .hero{padding:84px 0 60px}
+.v3 .hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.04;max-width:17ch;font-weight:600}
+.v3 .hero h1 .b{color:var(--orange)}
+.v3 .hero .lede{max-width:58ch;font-size:19.5px}
+
+.v3 .logos{background:transparent;padding:26px 0}
+.v3 .logoband .lab{font-family:var(--body);font-weight:600;letter-spacing:.1em}
+.v3 .lchip{border-color:var(--line)}
+
+.v3 .sec-head h2{font-size:clamp(30px,3.8vw,46px)}
+
+/* the AI ROI Matrix */
+.matrix-wrap{display:grid;grid-template-columns:1fr 290px;gap:36px;margin-top:34px;align-items:start}
+.matrix{display:grid;grid-template-columns:30px 1fr 1fr;gap:14px}
+.mx-key{display:none}
+.mx-y{grid-column:1;grid-row:1/3;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;
+  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.mx-x{grid-column:2/4;text-align:center;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);padding-top:4px}
+.mxq{border-radius:16px;padding:24px 24px 18px;min-height:250px}
+.mxq h3{font-size:25px;line-height:1.15}
+.mxq .sub{font-weight:600;font-size:15.5px;margin:10px 0 10px;color:var(--navy)}
+.mxq ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.mxq li+li{margin-top:6px}
+.mxq.stuck{background:#E8E9F2}
+.mxq.compound{background:var(--navy)}
+.mxq.compound h3,.mxq.compound .sub{color:#fff}
+.mxq.compound ul{color:#D6DAEE}
+.mxq.pilots{background:#F5ECE6}
+.mxq.pilots h3,.mxq.pilots .sub{color:#7A3A1C}
+.mxq.pilots ul{color:#6B4A3A}
+.mxq.nobrain{background:#EEEDE7}
+.mxq.nobrain h3,.mxq.nobrain .sub{color:#2A2A2A}
+.moves-lab{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.move{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+.move .n{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.08em}
+.move h3{font-family:var(--body)!important;font-weight:700;font-size:18px;margin:4px 0 6px;letter-spacing:0}
+.move p{font-size:14.5px;color:var(--muted);margin:0}
+.move .dir{display:block;margin-top:8px;font-size:13.5px;font-weight:600;color:var(--orange)}
+.move.deploy{background:var(--navy);border-color:var(--navy)}
+.move.deploy h3{color:#fff}
+.move.deploy p,.move.deploy .n{color:#D6DAEE}
+.move.deploy .dir{color:#F0A67E}
+.move.deploy a{display:block;margin-top:10px;font-size:13.5px;color:#fff;text-underline-offset:3px}
+.plan{max-width:72ch;margin:28px 0 0;font-size:16.5px;color:var(--muted)}
+.plan b{color:var(--navy)}
+
+/* recent work as a plain list, not a card grid */
+.worklist{margin-top:26px;border-top:1px solid var(--line)}
+.wrow{display:grid;grid-template-columns:260px 1fr;gap:32px;padding:22px 0;border-bottom:1px solid var(--line)}
+.wrow .org{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--navy);line-height:1.2}
+.wrow .who{font-size:13.5px;color:var(--muted);margin-top:4px}
+.wrow p{margin:0;font-size:16.5px;max-width:62ch}
+.wrow a{color:var(--orange);font-weight:600;font-size:14.5px;margin-left:4px}
+.pull{margin:44px 0 0;max-width:40ch}
+.pull blockquote{margin:0;font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);line-height:1.35;color:var(--navy)}
+.pull figcaption{margin-top:12px;font-size:14.5px;color:var(--muted);font-weight:600}
+.v3 .note a{color:var(--navy)}
+
+.v3 .person{background:transparent;border-color:var(--line)}
+.v3 .person .role{color:var(--orange)}
+.also{margin:18px 0 0;font-size:15.5px;color:var(--muted);max-width:80ch}
+.also a{color:var(--navy);font-weight:600}
+
+.v3 .final h2{margin-top:0}
+.v3 .final .more{margin:30px 0 0}
+.v3 .final .more a{color:var(--navy)}
+
+@media(max-width:920px){
+  .matrix-wrap{grid-template-columns:1fr}
+  .matrix{grid-template-columns:1fr}
+  .mx-y,.mx-x{display:none}
+  .mx-key{display:block;margin:0;font-size:14.5px;color:var(--muted)}
+  .mxq{min-height:0}
+  .wrow{grid-template-columns:1fr;gap:8px}
+}
+
+/* v3: the token-spend panel sits on dark ink, so its heading stays light */
+.v3 .loop-tokens.side h3{color:#fff}

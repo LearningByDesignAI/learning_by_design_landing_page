@@ -16,7 +16,20 @@ How we work: player-coach, done with you. We lead workflow 1, build workflow 2 s
 - Month 2, champions and workflow 2: leaders and champions learn to build their own skills.
 - Month 3, workflow 3 and an ROI scorecard measured against the baseline.
 
+## The AI ROI Matrix
+
+Where AI returns start to compound. Two axes: People (AI fluency, all the way up to leadership) and Systems (shared context and integration). Most teams have the tools; returns compound only when fluent people work on shared systems.
+
+- Scattered pilots (low people, low systems): seats bought, usage uneven. Utilization gets tracked; value doesn't.
+- Skilled but stuck (high people, low systems): a few highly capable people or teams, little shared cross-functional infrastructure. ROI stays inside individual or small-team workflows.
+- Agents without a brain (low people, high systems): agents built, nothing compounds. Agents sit apart from each other with no shared context.
+- Compounding systems (high people, high systems): fluent at every level, running on one shared brain that every agent, skill, policy and access rule runs on.
+
+How we move you: Strategy (find ROI-positive opportunities and set the mandate; up and right), Upskill (train and coach your team, from champions to leadership; up), Deploy (agents plus a shared brain that compounds, at optimized cost; right). We embed like a fractional Chief AI Officer, player-coach style.
+
 ## The AI capability loop
+
+How we build the systems side (the Deploy move). Full page: https://learningbydesign.ai/loop
 
 Start with one workflow that matters. Each layer creates the need for the next:
 
@@ -43,7 +56,8 @@ In parallel, token spend is optimized continuously (small models for routine ste
 
 ## Pages
 
-- [Home](https://learningbydesign.ai/): the lead offer, the loop and recent work
+- [Home](https://learningbydesign.ai/): the lead offer, the AI ROI Matrix and recent work
+- [The AI capability loop](https://learningbydesign.ai/loop): how we build the shared brain, skills, workflows, apps and metric layer
 - [B2B By Design](https://learningbydesign.ai/b2b): turn a B2C product into a B2B AI-native offer in 90 days
 - [Product](https://learningbydesign.ai/product): AI-native product and engineering
 - [GTM](https://learningbydesign.ai/gtm): AI-native GTM and RevOps for growing sales teams
