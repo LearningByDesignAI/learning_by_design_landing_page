@@ -22,13 +22,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Learning By Design AI">
 <meta property="og:url" content="https://learningbydesign.ai/portfolio">
-<meta property="og:title" content="Built, not theorized. Our AI builds.">
+<meta property="og:title" content="Things we've built. Our AI builds.">
 <meta property="og:description" content="AI systems we have shipped that teams run every week, and the leaders we have taught to build their own.">
 <meta property="og:image" content="https://learningbydesign.ai/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Built, not theorized. Our AI builds.">
+<meta name="twitter:title" content="Things we've built. Our AI builds.">
 <meta name="twitter:description" content="AI systems we have shipped that teams run every week, and the leaders we have taught to build their own.">
 <meta name="twitter:image" content="https://learningbydesign.ai/assets/og-image.png">
 
@@ -67,6 +67,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding:26px 26px;border-top:1px solid var(--line)}
   .build:first-child{border-top:0}
   .build .who .lchip{margin-bottom:12px}
+  .build .who .lchip.sq{padding:6px;min-width:0}
+  .build .who .lchip.sq img{height:34px;border-radius:7px}
   .build .who b{display:block;font-family:var(--display);font-weight:700;font-size:18px}
   .build .who span.sector{font-size:13.5px;color:var(--muted);line-height:1.4;display:block;margin-top:2px}
   .build h3{font-size:20px;margin-bottom:8px}
@@ -165,10 +167,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">Portfolio · our AI builds</div>
-      <h1>Built, <span class="b">not theorized.</span></h1>
+      <h1>Things We've <span class="b">Built</span></h1>
       <p class="lede">AI systems we have shipped that teams run every week, and the leaders we have taught to build their own. Every build starts with one workflow and a person who owns it.</p>
       <div class="hero-cta">
-        <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="hero">Book a call with David &amp; Vedansh</a>
+        <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="hero">Book a call with David</a>
         <a class="btn ghost" href="#builds">See the builds</a>
       </div>
     </div>
@@ -235,6 +237,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </li>
       <li class="build reveal">
         <div class="who">
+          <span class="lchip sq" data-name="ReachAll AI"><img src="/assets/logos/reachall.jpg" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>ReachAll AI</b><span class="sector">Voice AI platform &middot; built from zero by our cofounder and CTO, Vedansh Garg</span>
+        </div>
+        <div class="what">
+          <h3>A voice AI platform acquired by IKEA's parent company</h3>
+          <p>Voice agents usually take 700 to 800ms to answer. Vedansh built ReachAll to answer in under 300ms, at 3x lower cost and 99.99% uptime. It was acquired by IKEA's parent company.</p>
+          <div class="tags"><span>Voice AI</span><span>3x lower cost</span><span>99.99% uptime</span></div>
+        </div>
+        <div class="num"><b>&lt;300ms</b><span>latency, against a typical 700 to 800ms</span></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
           <span class="lchip" data-name="Cloudforce"><img src="/assets/logos/cloudforce.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
           <b>Cloudforce</b><span class="sector">Microsoft partner serving government and higher ed</span>
         </div>
@@ -260,26 +274,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li class="build reveal">
         <div class="who">
           <span class="lchip" data-name="Edstruments"><img src="/assets/logos/edstruments.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
-          <b>Edstruments</b><span class="sector">K-12 edtech</span>
+          <b>Edstruments</b><span class="sector">K-12 edtech &middot; 2026</span>
         </div>
         <div class="what">
           <h3>An outbound system where people keep the launch button</h3>
-          <p>An MCP-based system builds and verifies lists of district finance contacts, loads approved batches as paused campaigns and reads replies. A person decides what goes out.</p>
-          <div class="tags"><span>MCP server</span><span>Human-in-the-loop</span><span>Outbound</span></div>
+          <p>We built a GTM agent, callable over headless MCP, that builds and verifies lists of school-district finance contacts and loads approved batches as paused campaigns. A person reviews, edits and launches each one, and gets notified when a human replies.</p>
+          <div class="tags"><span>GTM agent</span><span>MCP server</span><span>Human-in-the-loop</span></div>
         </div>
         <div class="num"></div>
       </li>
       <li class="build reveal">
         <div class="who">
           <span class="lchip" data-name="TrustVet"><img src="/assets/logos/trustvet.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
-          <b>TrustVet</b><span class="sector">Veterinary software</span>
+          <b>TrustVet</b><span class="sector">Veterinary software &middot; 2026</span>
         </div>
         <div class="what">
           <h3>An AI prototyping lab, live with the CEO</h3>
-          <p>A working environment for building and testing AI product ideas, delivered as a fixed-scope first phase and now live with the CEO.</p>
-          <div class="tags"><span>Prototyping</span><span>Fixed-scope phase 1</span></div>
+          <p>We built a working AI prototyping environment, now live with the CEO. Their team prototypes new ideas in their own demo environment, on their existing codebase and design system.</p>
+          <div class="tags"><span>Prototyping</span><span>Existing codebase</span><span>Design system</span></div>
         </div>
         <div class="num"></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip sq" data-name="Learning By Design"><img src="/assets/logos/lxd-mark.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>Learning By Design</b><span class="sector">Our own operating system &middot; 2025 to present</span>
+        </div>
+        <div class="what">
+          <h3>The operating system we run our own firm on</h3>
+          <p>A shared brain and context layer in Google Drive and GitHub, a library of 20+ Claude skills, plugins and scheduled tasks, and a Claude Code harness for longer-running agents. It drafts proposals, meeting follow-ups, cold outreach, conference and event research, writing and learning materials, with a shared review queue, an orchestrator and dashboards. A practice sandbox with guided labs teaches connectors, skills and scheduled tasks.</p>
+          <div class="tags"><span>Claude Code</span><span>Skills and plugins</span><span>Scheduled tasks</span><span>Practice sandbox</span></div>
+        </div>
+        <div class="num"><b>20+</b><span>Claude skills, plugins and scheduled tasks</span></div>
       </li>
     </ul>
   </div>
@@ -320,7 +346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="panel reveal">
         <div class="k">Enterprise leaders</div>
         <h3>From using AI to building with it in seven weeks</h3>
-        <p class="sub">Nontechnical leaders in our agentic AI course shipped their own agents.</p>
+        <p class="sub">We have run this agentic AI workshop with about 20 leaders across 3 cohorts, and counting. Nontechnical leaders ship their own agents.</p>
         <ul class="agents">
           <li><b>JPMorgan Chase</b><span>Research and strategy lead built an in-house taxonomy agent.</span></li>
           <li><b>JPMorgan Chase</b><span>Technology program lead built a stand-up summarizer and a portfolio report agent.</span></li>
@@ -330,10 +356,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="stats reveal">
-      <span class="lead"><b>From our bench:</b> ReachAll AI, a voice AI platform built by our technical cofounder Vedansh Garg. Acquired by IKEA's parent company.</span>
-      <span><b>&lt;300ms</b>latency</span>
-      <span><b>3x</b>lower cost</span>
-      <span><b>99.99%</b>uptime</span>
+      <span class="lead"><b>Claude workshops, in partnership with Anthropic:</b> as an approved Claude SMB Trainer, we teach teams to automate workflows with scheduled tasks, connectors, skills and plugins, and to orchestrate agents.</span>
+      <span><b>3</b>workshops run</span>
+      <span><b>60+</b>attendees</span>
+      <span><b>2 + 1</b>virtual and in person</span>
     </div>
   </div>
 </section>
@@ -343,7 +369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <h2 style="margin-top:0">Start with one workflow.</h2>
     <p>Your first 3 ROI-positive AI agents, live in 3 months, with your team trained to run them.</p>
-    <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="final" style="font-size:17px;padding:15px 26px">Book a call with David &amp; Vedansh</a>
+    <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="final" style="font-size:17px;padding:15px 26px">Book a call with David</a>
   </div>
 </section>
 
