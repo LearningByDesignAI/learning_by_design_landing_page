@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=' js'</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N28T7R3S');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning By Design AI · Portfolio: AI systems teams run every week</title>
+<meta name="description" content="AI systems Learning By Design AI has built that teams use every week, and the leaders we have taught to build their own.">
+<meta name="author" content="Learning By Design AI">
+<link rel="canonical" href="https://learningbydesign.ai/portfolio">
+<!-- Prototype for review. Not linked from the site, not in the sitemap. At go-live: switch robots to "index, follow". -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1E3A5F">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learning By Design AI">
+<meta property="og:url" content="https://learningbydesign.ai/portfolio">
+<meta property="og:title" content="Built, not theorized. Our AI builds.">
+<meta property="og:description" content="AI systems we have shipped that teams run every week, and the leaders we have taught to build their own.">
+<meta property="og:image" content="https://learningbydesign.ai/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Built, not theorized. Our AI builds.">
+<meta name="twitter:description" content="AI systems we have shipped that teams run every week, and the leaders we have taught to build their own.">
+<meta name="twitter:image" content="https://learningbydesign.ai/assets/og-image.png">
+
+<link rel="icon" href="/assets/logos/lxd-mark-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logos/lxd-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/lxd.css">
+<style>
+  /* ---- page-specific: portfolio ---- */
+  .hero{padding-bottom:40px}
+  .scorecard li b{font-family:var(--display);font-weight:700;font-size:24px;white-space:nowrap}
+  .scorecard li span{white-space:normal;text-align:right;line-height:1.35;max-width:170px}
+
+  /* featured build: the Locust Walk brain, drawn to its true counts */
+  .feature{padding:0 0 72px}
+  .brainbox{background:var(--ink);color:#c3cdda;border-radius:18px;padding:26px 28px 22px;
+    box-shadow:0 18px 40px -28px rgba(8,24,40,.6)}
+  .brainbox .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px}
+  .brainbox .eyebrow{color:var(--gold)}
+  .brainbox h2{color:#fff;font-size:clamp(22px,2.6vw,28px);margin-top:8px;max-width:26ch}
+  .brainbox .scale{font-size:13.5px;margin:0}
+  .fig{position:relative;height:360px;margin-top:18px}
+  .fig svg{position:absolute;inset:0;width:100%;height:100%}
+  .fig text{font:600 13.5px var(--display)}
+  .brainbox .cap{font-size:14.5px;margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);max-width:none}
+  .brainbox .cap b{color:#fff}
+  .brainbox .cap a{color:var(--gold);font-family:var(--display);font-weight:600;text-decoration:none;white-space:nowrap}
+  .brainbox .cap a:hover{text-decoration:underline}
+
+  /* systems in production */
+  .builds{list-style:none;margin:34px 0 0;padding:0;background:#fff;border:1px solid var(--line);border-radius:16px}
+  .build{display:grid;grid-template-columns:minmax(0,13.5em) minmax(0,1fr) minmax(0,10em);gap:12px 34px;
+    padding:26px 26px;border-top:1px solid var(--line)}
+  .build:first-child{border-top:0}
+  .build .who .lchip{margin-bottom:12px}
+  .build .who b{display:block;font-family:var(--display);font-weight:700;font-size:18px}
+  .build .who span.sector{font-size:13.5px;color:var(--muted);line-height:1.4;display:block;margin-top:2px}
+  .build h3{font-size:20px;margin-bottom:8px}
+  .build p{margin:0;font-size:15.5px;color:var(--muted);max-width:60ch}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tags span{font-family:var(--display);font-weight:600;font-size:11.5px;background:var(--gold-soft);
+    border:1px solid var(--gold);border-radius:999px;padding:3px 10px;color:var(--ink)}
+  .build .num{text-align:right}
+  .build .num b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,40px);
+    line-height:1;color:var(--orange);white-space:nowrap}
+  .build .num span{display:block;font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.35}
+
+  /* people who build their own */
+  .enable{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+  .panel .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+  .panel h3{font-size:20px;margin-top:8px}
+  .panel .sub{font-size:14.5px;color:var(--muted);margin:8px 0 22px}
+  .db{margin-bottom:20px}
+  .db .lab{display:flex;justify-content:space-between;gap:12px;font-size:15px;margin-bottom:6px}
+  .db .lab b{font-family:var(--display);white-space:nowrap}
+  .track{position:relative;height:28px}
+  .track::before{content:"";position:absolute;left:0;right:0;top:13px;height:2px;background:var(--line)}
+  .seg{position:absolute;top:11px;height:6px;border-radius:3px;background:var(--gold)}
+  .dot{position:absolute;top:6px;width:16px;height:16px;margin-left:-8px;border-radius:50%;border:3px solid var(--navy);background:#fff}
+  .dot.after{background:var(--navy)}
+  .axis{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+  .key{display:flex;gap:18px;font-size:12.5px;color:var(--muted);margin-top:14px}
+  .key i{display:inline-block;width:10px;height:10px;border-radius:50%;border:2px solid var(--navy);margin-right:6px;vertical-align:-1px}
+  .key i.a{background:var(--navy)}
+  .agents{list-style:none;margin:0;padding:0}
+  .agents li{display:grid;grid-template-columns:minmax(0,8.5em) minmax(0,1fr);gap:4px 16px;padding:13px 0;
+    border-top:1px solid var(--line);font-size:14.5px;color:var(--muted)}
+  .agents b{font-family:var(--display);color:var(--ink);font-size:15px}
+  .enable .stats{margin-top:18px}
+  .enable .stats .lead b{margin-right:4px}
+
+  @media(max-width:920px){
+    .build{grid-template-columns:minmax(0,1fr) auto}
+    .build .what{grid-column:1/-1;grid-row:2}
+    .build .num{grid-row:1;grid-column:2}
+    .two{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    .fig{height:540px}
+    .brainbox{padding:22px 18px 18px}
+  }
+  @media(max-width:560px){
+    .build{grid-template-columns:minmax(0,1fr);padding:22px 18px}
+    .build .what{grid-row:2;grid-column:1}
+    .build .num{grid-row:3;grid-column:1;text-align:left}
+    .build .num:empty{display:none}
+    .agents li{grid-template-columns:1fr}
+  }
+</style>
+<script>
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N28T7R3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><img class="logo" src="/assets/logos/lxd-mark.png" alt="LXD" width="34" height="34"> Learning By Design AI</a>
+    <nav class="nav-links" id="nav" aria-label="Main">
+      <a href="/#offer">How it works</a>
+      <a href="/#loop">The loop</a>
+      <a href="/portfolio" aria-current="page" style="color:var(--ink)">Portfolio</a>
+      <a href="/#team">Team</a>
+      <details class="dd">
+        <summary>Other offerings</summary>
+        <div class="dd-menu">
+          <a href="/b2b">B2B By Design</a>
+          <a href="/product">Product</a>
+          <a href="/gtm">GTM</a>
+          <a href="/education">Education</a>
+        </div>
+      </details>
+      <a href="/blog.html">Writing</a>
+      <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="nav">Book a call</a>
+    </nav>
+    <button class="menu-toggle" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======= HERO ======= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Portfolio · our AI builds</div>
+      <h1>Built, <span class="b">not theorized.</span></h1>
+      <p class="lede">AI systems we have shipped that teams run every week, and the leaders we have taught to build their own. Every build starts with one workflow and a person who owns it.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="hero">Book a call with David &amp; Vedansh</a>
+        <a class="btn ghost" href="#builds">See the builds</a>
+      </div>
+    </div>
+    <div class="scorecard" aria-label="Headline results">
+      <div class="eyebrow">In production</div>
+      <ol>
+        <li><b>58</b> <span>AI skills behind one investment bank</span></li>
+        <li><b>500+</b> <span>ads shipped by one agent</span></li>
+        <li class="roi"><b>49% &rarr; 86%</b> <span>confident AI use across 300+ employees</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FEATURED: LOCUST WALK ======= -->
+<section class="feature" aria-label="Featured build: Locust Walk">
+  <div class="wrap">
+    <div class="brainbox reveal">
+      <div class="top">
+        <div>
+          <div class="eyebrow">Featured · Locust Walk</div>
+          <h2>The governed AI brain a global life science investment bank runs on.</h2>
+        </div>
+        <p class="scale">Drawn to scale: every system and skill is one mark.</p>
+      </div>
+      <div class="fig" id="brain" role="img" aria-label="Diagram: 8 data systems feed one governed brain, which runs 58 AI skills that answer analysts' plain-English questions about comparables, deal prep and pipeline."></div>
+      <p class="cap"><b>8 data systems</b> behind one brain, <b>58 AI skills</b> on top. Analysts pull comparables, deal prep and pipeline by asking in plain English. <a href="/assets/pdfs/lxd-ai-capability-loop.pdf">See it on the loop (PDF) &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SYSTEMS IN PRODUCTION ======= -->
+<section id="builds" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Systems in production</div>
+      <h2>Built with the people who do the work.</h2>
+      <p>Each one began in discovery with the people who do the work, ships with guardrails a reviewer can read, and stays with the team that owns it.</p>
+    </div>
+    <ul class="builds">
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip" data-name="Locust Walk"><img src="/assets/logos/locust-walk.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>Locust Walk</b><span class="sector">Global life science investment bank</span>
+        </div>
+        <div class="what">
+          <h3>A governed AI brain the bank runs on</h3>
+          <p>We connected 8 data systems behind 58 AI skills. Analysts pull comparables, deal prep and pipeline by asking in plain English, with sources and access governed.</p>
+          <div class="tags"><span>Claude skills</span><span>MCP</span><span>Governed data access</span></div>
+        </div>
+        <div class="num"><b>58</b><span>skills on 8 systems</span></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip" data-name="Roo"><img src="/assets/logos/roo.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>Roo</b><span class="sector">Veterinary staffing marketplace, about $40M ARR</span>
+        </div>
+        <div class="what">
+          <h3>An ads agent that works inside guardrails</h3>
+          <p>We mapped which campaign calls were rules and which needed judgment, then shipped an agent that runs paid social within hard spend caps, publishing limits, approval routing and a full action log. The marketing team owns it.</p>
+          <div class="tags"><span>Autonomous agent</span><span>Spend caps</span><span>Human approval</span></div>
+        </div>
+        <div class="num"><b>500+</b><span>ads to Facebook and Instagram</span></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip" data-name="Cloudforce"><img src="/assets/logos/cloudforce.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>Cloudforce</b><span class="sector">Microsoft partner serving government and higher ed</span>
+        </div>
+        <div class="what">
+          <h3>An AI lab for rapid product prototyping</h3>
+          <p>We helped lead the kickoff with the CEO and CTO to stand up a lab for spinning up new products fast, and prototyped course-management and Canvas capabilities that shaped the roadmap.</p>
+          <div class="tags"><span>Canvas</span><span>MCP</span><span>Rapid prototyping</span></div>
+        </div>
+        <div class="num"><b>LMS</b><span>agents, MCP and integrations</span></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip" data-name="Mindset CoPilot"><img src="/assets/logos/mindset-copilot.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>Mindset CoPilot</b><span class="sector">AI-native educator feedback platform</span>
+        </div>
+        <div class="what">
+          <h3>A launch gated on data accuracy</h3>
+          <p>As fractional product lead, we made data accuracy the launch gate and used AI-assisted triage with engineering to close the gaps. It launched on time.</p>
+          <div class="tags"><span>Product launch</span><span>AI-assisted QA</span></div>
+        </div>
+        <div class="num"><b>~80%</b><span>completion across nearly 500 educators</span></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip" data-name="Edstruments"><img src="/assets/logos/edstruments.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>Edstruments</b><span class="sector">K-12 edtech</span>
+        </div>
+        <div class="what">
+          <h3>An outbound system where people keep the launch button</h3>
+          <p>An MCP-based system builds and verifies lists of district finance contacts, loads approved batches as paused campaigns and reads replies. A person decides what goes out.</p>
+          <div class="tags"><span>MCP server</span><span>Human-in-the-loop</span><span>Outbound</span></div>
+        </div>
+        <div class="num"></div>
+      </li>
+      <li class="build reveal">
+        <div class="who">
+          <span class="lchip" data-name="TrustVet"><img src="/assets/logos/trustvet.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('noimg')"></span>
+          <b>TrustVet</b><span class="sector">Veterinary software</span>
+        </div>
+        <div class="what">
+          <h3>An AI prototyping lab, live with the CEO</h3>
+          <p>A working environment for building and testing AI product ideas, delivered as a fixed-scope first phase and now live with the CEO.</p>
+          <div class="tags"><span>Prototyping</span><span>Fixed-scope phase 1</span></div>
+        </div>
+        <div class="num"></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======= PEOPLE WHO BUILD THEIR OWN ======= -->
+<section class="enable">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Enablement</div>
+      <h2>People who build their own.</h2>
+      <p>Agents only compound when the team can use, fix and extend them. Our enablement is measured the same way as our builds.</p>
+    </div>
+    <div class="two">
+      <div class="panel reveal">
+        <div class="k">100 School &times; BCG</div>
+        <h3>An AI upskilling rollout for 300+ employees</h3>
+        <p class="sub">90%+ completion. Before and after the program.</p>
+        <div class="db">
+          <div class="lab"><span>AI fluency</span><b>7% &rarr; 75%</b></div>
+          <div class="track">
+            <div class="seg" style="left:7%;width:68%"></div>
+            <div class="dot" style="left:7%" title="Before: 7%"></div>
+            <div class="dot after" style="left:75%" title="After: 75%"></div>
+          </div>
+        </div>
+        <div class="db">
+          <div class="lab"><span>Confident AI use</span><b>49% &rarr; 86%</b></div>
+          <div class="track">
+            <div class="seg" style="left:49%;width:37%"></div>
+            <div class="dot" style="left:49%" title="Before: 49%"></div>
+            <div class="dot after" style="left:86%" title="After: 86%"></div>
+          </div>
+        </div>
+        <div class="axis"><span>0%</span><span>50%</span><span>100%</span></div>
+        <div class="key"><span><i></i>Before</span><span><i class="a"></i>After</span></div>
+      </div>
+      <div class="panel reveal">
+        <div class="k">Enterprise leaders</div>
+        <h3>From using AI to building with it in seven weeks</h3>
+        <p class="sub">Nontechnical leaders in our agentic AI course shipped their own agents.</p>
+        <ul class="agents">
+          <li><b>JPMorgan Chase</b><span>Research and strategy lead built an in-house taxonomy agent.</span></li>
+          <li><b>JPMorgan Chase</b><span>Technology program lead built a stand-up summarizer and a portfolio report agent.</span></li>
+          <li><b>Target</b><span>Regional security leader built a quarter-over-quarter audit workflow and a sourced benchmark deck.</span></li>
+          <li><b>PNC</b><span>Private banking market leader built a weekly agent that works across four calendars.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <span class="lead"><b>From our bench:</b> ReachAll AI, a voice AI platform built by our technical cofounder Vedansh Garg. Acquired by IKEA's parent company.</span>
+      <span><b>&lt;300ms</b>latency</span>
+      <span><b>3x</b>lower cost</span>
+      <span><b>99.99%</b>uptime</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FINAL CTA ======= -->
+<section class="final" id="contact" style="border-top:0">
+  <div class="wrap">
+    <h2 style="margin-top:0">Start with one workflow.</h2>
+    <p>Your first 3 ROI-positive AI agents, live in 3 months, with your team trained to run them.</p>
+    <a class="btn gold" href="https://cal.com/davidfu/30min" data-cta="final" style="font-size:17px;padding:15px 26px">Book a call with David &amp; Vedansh</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div><img class="logo" src="/assets/logos/lxd-mark.png" alt="LXD" width="34" height="34" style="display:inline-block;vertical-align:middle;margin-right:8px"> Learning By Design AI</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="http://linkedin.com/company/learningxdesign">LinkedIn</a>
+      <a href="https://learningbydesign.substack.com">Substack</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href="https://cal.com/davidfu/30min">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var btn=document.getElementById('menuBtn'), nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A') nav.classList.remove('open'); });
+  var dd=document.querySelector('.dd');
+  document.addEventListener('click',function(e){ if(dd&&!dd.contains(e.target)) dd.removeAttribute('open'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&dd) dd.removeAttribute('open'); });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  /* Locust Walk brain: 8 systems -> hub -> 58 skills -> 3 outputs. Redrawn to fit its box. */
+  (function(){
+    var s=document.getElementById('brain');
+    if(!s||!window.ResizeObserver) return;
+    var GOLD='#FAD392', INK='#081828', PAPER='#FAF6EE';
+    var dim='rgba(255,255,255,.32)', line='rgba(255,255,255,.2)';
+    var outs=['Comparables','Deal prep','Pipeline'];
+    function label(x,y,t,end){ return '<text x="'+x+'" y="'+y+'" fill="#fff"'+(end?' text-anchor="end"':'')+' style="paint-order:stroke;stroke:'+INK+';stroke-width:4px">'+t+'</text>'; }
+    function hub(x,y,r){
+      return '<circle cx="'+x+'" cy="'+y+'" r="'+(r+10)+'" fill="none" stroke="'+GOLD+'" stroke-opacity=".55" stroke-dasharray="3 5"/>'
+        +'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+PAPER+'"/>'
+        +'<text x="'+x+'" y="'+(y-3)+'" fill="'+INK+'" text-anchor="middle" style="font-weight:700">Governed</text>'
+        +'<text x="'+x+'" y="'+(y+15)+'" fill="'+INK+'" text-anchor="middle" style="font-weight:700">brain</text>';
+    }
+    function draw(){
+      var W=s.clientWidth, H=s.clientHeight, pad=2, g='', i, r, c, k, x, y;
+      if(!W||!H) return;
+      if(W>=600){
+        var top=46, bot=H-10, srcW=72, gap=(bot-top)/8;
+        var hubR=50, hubX=Math.max(pad+srcW+120,W*0.32), hubY=(top+bot)/2;
+        var outW=132, outX=W-pad-outW;
+        var sx0=hubX+hubR+70, sx1=outX-70, cols=6, rows=10;
+        var cw=(sx1-sx0)/(cols-1), rh=(bot-top-10)/(rows-1), dr=Math.min(7,cw/3,rh/3);
+        for(i=0;i<8;i++){
+          y=top+gap*i+gap/2;
+          g+='<path d="M'+(pad+srcW)+','+y+' C'+(hubX-70)+','+y+' '+(hubX-70)+','+hubY+' '+(hubX-hubR)+','+hubY+'" fill="none" stroke="'+line+'" stroke-width="2"/>';
+          g+='<rect x="'+pad+'" y="'+(y-11)+'" width="'+srcW+'" height="22" rx="5" fill="rgba(255,255,255,.08)" stroke="'+dim+'"/><line x1="'+(pad+10)+'" x2="'+(pad+srcW-10)+'" y1="'+y+'" y2="'+y+'" stroke="'+dim+'"/>';
+        }
+        for(r=0;r<rows;r++){
+          y=top+5+rh*r;
+          g+='<path d="M'+(hubX+hubR)+','+hubY+' C'+(sx0-40)+','+hubY+' '+(sx0-40)+','+y+' '+(sx0-dr-4)+','+y+'" fill="none" stroke="'+line+'"/>';
+        }
+        k=0;
+        for(r=0;r<rows;r++) for(c=0;c<cols;c++){
+          if(k++<58) g+='<circle cx="'+(sx0+cw*c)+'" cy="'+(top+5+rh*r)+'" r="'+dr+'" fill="'+GOLD+'"/>';
+        }
+        outs.forEach(function(t,i){
+          var y=hubY+(i-1)*56;
+          g+='<path d="M'+(sx1+dr+4)+','+hubY+' C'+(outX-30)+','+hubY+' '+(outX-30)+','+y+' '+outX+','+y+'" fill="none" stroke="'+line+'" stroke-width="2"/>';
+          g+='<rect x="'+outX+'" y="'+(y-17)+'" width="'+outW+'" height="34" rx="10" fill="'+GOLD+'"/><text x="'+(outX+outW/2)+'" y="'+(y+5)+'" fill="'+INK+'" text-anchor="middle">'+t+'</text>';
+        });
+        g+=hub(hubX,hubY,hubR);
+        g+=label(pad,top-20,'8 data systems')+label(sx0-dr,top-20,'58 AI skills')+label(W-pad,top-20,'Asked in plain English',1);
+      } else {
+        var bw=(W-2*pad-7*6)/8, by=42, hY=150, hR=40, hX=W/2;
+        for(i=0;i<8;i++){
+          x=pad+i*(bw+6);
+          g+='<path d="M'+(x+bw/2)+','+(by+22)+' C'+(x+bw/2)+','+(hY-40)+' '+hX+','+(hY-70)+' '+hX+','+(hY-hR)+'" fill="none" stroke="'+line+'" stroke-width="2"/>';
+          g+='<rect x="'+x+'" y="'+by+'" width="'+bw+'" height="22" rx="5" fill="rgba(255,255,255,.08)" stroke="'+dim+'"/>';
+        }
+        var gy0=246, gy1=380, cols2=10, rows2=6, gx0=pad+12, gx1=W-pad-12;
+        var cw2=(gx1-gx0)/(cols2-1), rh2=(gy1-gy0)/(rows2-1), dr2=Math.min(7,cw2/3,rh2/3);
+        g+='<line x1="'+hX+'" x2="'+hX+'" y1="'+(hY+hR)+'" y2="'+(gy0-30)+'" stroke="'+line+'" stroke-width="2"/>';
+        k=0;
+        for(r=0;r<rows2;r++) for(c=0;c<cols2;c++){
+          if(k++<58) g+='<circle cx="'+(gx0+cw2*c)+'" cy="'+(gy0+rh2*r)+'" r="'+dr2+'" fill="'+GOLD+'"/>';
+        }
+        var ow=(W-2*pad-16)/3, oy=470;
+        outs.forEach(function(t,i){
+          var x=pad+i*(ow+8);
+          g+='<line x1="'+hX+'" x2="'+(x+ow/2)+'" y1="'+(gy1+14)+'" y2="'+(oy-17)+'" stroke="'+line+'" stroke-width="2"/>';
+          g+='<rect x="'+x+'" y="'+(oy-17)+'" width="'+ow+'" height="34" rx="10" fill="'+GOLD+'"/><text x="'+(x+ow/2)+'" y="'+(oy+5)+'" fill="'+INK+'" text-anchor="middle" style="font-size:12.5px">'+t+'</text>';
+        });
+        g+=hub(hX,hY,hR);
+        g+=label(pad,26,'8 data systems')+label(pad,gy0-22,'58 AI skills')+label(pad,oy-34,'Asked in plain English');
+      }
+      s.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" aria-hidden="true">'+g+'</svg>';
+    }
+    new ResizeObserver(draw).observe(s);
+  })();
+</script>
+</body>
+</html>
