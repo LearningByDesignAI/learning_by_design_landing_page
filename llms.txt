@@ -44,6 +44,7 @@ In parallel, token spend is optimized continuously (small models for routine ste
 ## Pages
 
 - [Home](https://learningbydesign.ai/): the lead offer, the loop and recent work
+- [Portfolio](https://learningbydesign.ai/portfolio): AI systems we have built that teams run every week, and the leaders we have taught to build their own
 - [B2B By Design](https://learningbydesign.ai/b2b): turn a B2C product into a B2B AI-native offer in 90 days
 - [Product](https://learningbydesign.ai/product): AI-native product and engineering
 - [GTM](https://learningbydesign.ai/gtm): AI-native GTM and RevOps for growing sales teams
